@@ -1,0 +1,49 @@
+name: Uppdatera Kiva Compass
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 06:15 UTC = 08:15 svensk sommartid och 07:15 svensk vintertid.
+    - cron: "15 6 * * *"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Hämta projektet
+        uses: actions/checkout@v4
+
+      - name: Installera Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Testa Compass
+        run: python -m unittest -v
+
+      - name: Hämta och rangordna aktuella lån
+        run: python kiva_compass.py --live --pages 5 --limit 40 --output site/index.html
+
+      - name: Förbered GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Paketera rapporten
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Publicera rapporten
+        id: deployment
+        uses: actions/deploy-pages@v4

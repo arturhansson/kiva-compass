@@ -1,0 +1,17 @@
+{
+  "themes": [
+    {"label": "Cykel och mobilitet", "icon": "🚲", "points": 6, "keywords": ["bicycle", "bike", "cycling", "cykel"]},
+    {"label": "Vatten", "icon": "💧", "points": 6, "keywords": ["water", "well", "irrigation", "vatten"]},
+    {"label": "Sanitet", "icon": "🚽", "points": 6, "keywords": ["sanitation", "toilet", "latrine", "hygiene"]},
+    {"label": "Ren energi", "icon": "☀️", "points": 5, "keywords": ["solar", "renewable", "clean energy", "biogas"]},
+    {"label": "Reparation och återbruk", "icon": "♻️", "points": 4, "keywords": ["repair", "recycling", "reuse", "second-hand"]},
+    {"label": "Utbildning", "icon": "📚", "points": 3, "keywords": ["school", "education", "student", "tuition"]},
+    {"label": "Jordbruk och matsäkerhet", "icon": "🌱", "points": 2, "keywords": ["farm", "agriculture", "crop", "seeds", "organic"]}
+  ],
+  "attributes": [
+    {"field": "woman_owned", "equals": true, "label": "Kvinnors egenmakt", "icon": "♀", "points": 3},
+    {"field": "refugee", "equals": true, "label": "Flykting eller internflykting", "icon": "🕊️", "points": 3},
+    {"field": "rural", "equals": true, "label": "Landsbygd", "icon": "🏡", "points": 2},
+    {"field": "first_time_borrower", "equals": true, "label": "Förstagångslåntagare", "icon": "🌟", "points": 2}
+  ]
+}

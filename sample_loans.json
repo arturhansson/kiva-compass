@@ -1,0 +1,24 @@
+{
+  "loans": [
+    {
+      "id": 101, "name": "Amina", "country": "Kenya", "activity": "Cykelverkstad",
+      "use": "to buy tools and spare parts for her bicycle repair workshop",
+      "url": "https://www.kiva.org/lend", "attributes": {"woman_owned": true, "rural": true, "first_time_borrower": true}
+    },
+    {
+      "id": 102, "name": "Rosa", "country": "Peru", "activity": "Jordbruk",
+      "use": "to install a solar-powered irrigation and clean water system for her organic farm",
+      "url": "https://www.kiva.org/lend", "attributes": {"woman_owned": true, "rural": true}
+    },
+    {
+      "id": 103, "name": "Community group", "country": "Uganda", "activity": "Sanitet",
+      "use": "to construct hygienic toilets and a rainwater tank near a rural school",
+      "url": "https://www.kiva.org/lend", "attributes": {"rural": true, "refugee": true}
+    },
+    {
+      "id": 104, "name": "Carlos", "country": "Ecuador", "activity": "Butik",
+      "use": "to purchase additional clothing and household goods for his retail shop",
+      "url": "https://www.kiva.org/lend", "attributes": {}
+    }
+  ]
+}
