@@ -9,8 +9,9 @@ land**. Listan uppdateras i `new_country_bonus.countries` efter att ett nytt lan
 har nåtts.
 
 Webbrapporten visar de 100 högst rankade lånen i en kompakt tvåkolumnsvy. Den
-kan filtreras på fritext, Compass-kategori, land, sektor, aktivitet och minsta
-poäng. Ett frivilligt saldofält sparas endast lokalt i webbläsaren och räknar ut
+kan filtreras på fritext och kombinerbara kryssrutor för Compass-kategori, land,
+sektor, aktivitet och poängnivå. Val inom samma grupp kombineras med **eller**;
+val mellan grupper kombineras med **och**. Ett frivilligt saldofält sparas endast lokalt i webbläsaren och räknar ut
 hur många hela lån à $25 saldot räcker till; saldot publiceras inte på GitHub.
 
 ## Kör på Windows
