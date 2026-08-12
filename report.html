@@ -16,17 +16,17 @@ h1{font-size:clamp(1.8rem,5vw,2.8rem);margin:0;line-height:1} .intro{margin:.3re
 .summary{grid-column:1/-1;display:flex;justify-content:space-between;color:#587068;font-size:.82rem} .legend{white-space:nowrap}
 #loans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px} article{background:var(--card);padding:13px 14px;margin:0;border-radius:10px;border-left:4px solid var(--green);box-shadow:0 2px 9px #17352d12}
 .card-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px} h2{font-size:1.08rem;margin:0} a{color:var(--ink)} .score{color:#9a6b08;font-weight:800;white-space:nowrap} .place{margin:2px 0 5px;font-size:.82rem} .purpose{margin:0 0 6px}
-.tag{display:inline-block;background:#dcebe3;border-radius:99px;padding:2px 7px;margin:2px 2px 0 0;font-size:.72rem} .new-country{background:#ffe49a;color:#593d00;font-weight:800;border:1px solid #d29b28}
+.tag{display:inline-block;background:#dcebe3;border-radius:99px;padding:2px 7px;margin:2px 2px 0 0;font-size:.72rem} .new-country{background:#ffe49a;color:#593d00;font-weight:800;border:1px solid #d29b28} .climate-risk{background:#f8ded8;color:#762918;border:1px solid #d98d7b;font-weight:700}
 footer{margin-top:22px;color:#6b7974;font-size:.76rem} [hidden]{display:none!important}
 @media(max-width:800px){header{align-items:start;flex-direction:column}.controls{position:static;grid-template-columns:repeat(2,1fr)}.controls>input{grid-column:1/-1}#loans{grid-template-columns:1fr}.balance-box{width:100%}.filter-options{position:fixed;left:12px;right:12px;top:25%;max-width:none;max-height:60vh}}
 </style></head><body><main><header><div><h1>🧭 Kiva Compass</h1><p class="intro">Hitta lånen som bäst matchar din kompass.</p></div>
 <div class="balance-box"><label for="balance">Tillgängligt saldo $</label><input id="balance" type="number" min="0" step="1" placeholder="—"><span id="slots">Sparas endast i den här webbläsaren</span></div></header>
 <section class="controls" aria-label="Filtrera lån">
 <input id="search" type="search" placeholder="Sök namn, land eller ändamål…">
-<details class="filter-group" data-group="theme"><summary>Kategorier</summary><div class="filter-options"><label><input type="checkbox" data-filter="theme" value="Flykting eller internflykting"> Flykting eller internflykting</label><label><input type="checkbox" data-filter="theme" value="Jordbruk och matsäkerhet"> Jordbruk och matsäkerhet</label><label><input type="checkbox" data-filter="theme" value="Kvinnors egenmakt"> Kvinnors egenmakt</label><label><input type="checkbox" data-filter="theme" value="NYTT LAND"> NYTT LAND</label><label><input type="checkbox" data-filter="theme" value="Ren energi"> Ren energi</label><label><input type="checkbox" data-filter="theme" value="Reparation och återbruk"> Reparation och återbruk</label><label><input type="checkbox" data-filter="theme" value="Sanitet"> Sanitet</label><label><input type="checkbox" data-filter="theme" value="Utbildning"> Utbildning</label><label><input type="checkbox" data-filter="theme" value="Vatten"> Vatten</label></div></details>
-<details class="filter-group" data-group="country"><summary>Länder</summary><div class="filter-options"><label><input type="checkbox" data-filter="country" value="Brazil"> Brazil</label><label><input type="checkbox" data-filter="country" value="Burkina Faso"> Burkina Faso</label><label><input type="checkbox" data-filter="country" value="Colombia"> Colombia</label><label><input type="checkbox" data-filter="country" value="Costa Rica"> Costa Rica</label><label><input type="checkbox" data-filter="country" value="Dominican Republic"> Dominican Republic</label><label><input type="checkbox" data-filter="country" value="Ecuador"> Ecuador</label><label><input type="checkbox" data-filter="country" value="El Salvador"> El Salvador</label><label><input type="checkbox" data-filter="country" value="Ghana"> Ghana</label><label><input type="checkbox" data-filter="country" value="Guatemala"> Guatemala</label><label><input type="checkbox" data-filter="country" value="India"> India</label><label><input type="checkbox" data-filter="country" value="Indonesia"> Indonesia</label><label><input type="checkbox" data-filter="country" value="Kazakhstan"> Kazakhstan</label><label><input type="checkbox" data-filter="country" value="Kosovo"> Kosovo</label><label><input type="checkbox" data-filter="country" value="Kyrgyzstan"> Kyrgyzstan</label><label><input type="checkbox" data-filter="country" value="Madagascar"> Madagascar</label><label><input type="checkbox" data-filter="country" value="Mali"> Mali</label><label><input type="checkbox" data-filter="country" value="Moldova"> Moldova</label><label><input type="checkbox" data-filter="country" value="Mongolia"> Mongolia</label><label><input type="checkbox" data-filter="country" value="Nicaragua"> Nicaragua</label><label><input type="checkbox" data-filter="country" value="Paraguay"> Paraguay</label><label><input type="checkbox" data-filter="country" value="Philippines"> Philippines</label><label><input type="checkbox" data-filter="country" value="Rwanda"> Rwanda</label><label><input type="checkbox" data-filter="country" value="Samoa"> Samoa</label><label><input type="checkbox" data-filter="country" value="Senegal"> Senegal</label><label><input type="checkbox" data-filter="country" value="Sierra Leone"> Sierra Leone</label><label><input type="checkbox" data-filter="country" value="Tajikistan"> Tajikistan</label><label><input type="checkbox" data-filter="country" value="Timor-Leste"> Timor-Leste</label><label><input type="checkbox" data-filter="country" value="Tonga"> Tonga</label><label><input type="checkbox" data-filter="country" value="Turkey"> Turkey</label><label><input type="checkbox" data-filter="country" value="Uganda"> Uganda</label><label><input type="checkbox" data-filter="country" value="Vietnam"> Vietnam</label><label><input type="checkbox" data-filter="country" value="Zimbabwe"> Zimbabwe</label></div></details>
-<details class="filter-group" data-group="sector"><summary>Sektorer</summary><div class="filter-options"><label><input type="checkbox" data-filter="sector" value="Agriculture"> Agriculture</label><label><input type="checkbox" data-filter="sector" value="Arts"> Arts</label><label><input type="checkbox" data-filter="sector" value="Clean Energy"> Clean Energy</label><label><input type="checkbox" data-filter="sector" value="Construction"> Construction</label><label><input type="checkbox" data-filter="sector" value="Education"> Education</label><label><input type="checkbox" data-filter="sector" value="Food"> Food</label><label><input type="checkbox" data-filter="sector" value="Health"> Health</label><label><input type="checkbox" data-filter="sector" value="Housing"> Housing</label><label><input type="checkbox" data-filter="sector" value="Manufacturing"> Manufacturing</label><label><input type="checkbox" data-filter="sector" value="Services"> Services</label><label><input type="checkbox" data-filter="sector" value="Transportation"> Transportation</label><label><input type="checkbox" data-filter="sector" value="Water"> Water</label></div></details>
-<details class="filter-group" data-group="activity"><summary>Aktiviteter</summary><div class="filter-options"><label><input type="checkbox" data-filter="activity" value="Agriculture"> Agriculture</label><label><input type="checkbox" data-filter="activity" value="Animal Sales"> Animal Sales</label><label><input type="checkbox" data-filter="activity" value="Bakery"> Bakery</label><label><input type="checkbox" data-filter="activity" value="Barber Shop"> Barber Shop</label><label><input type="checkbox" data-filter="activity" value="Beauty Salon"> Beauty Salon</label><label><input type="checkbox" data-filter="activity" value="Beverages"> Beverages</label><label><input type="checkbox" data-filter="activity" value="Cattle"> Cattle</label><label><input type="checkbox" data-filter="activity" value="Cereals"> Cereals</label><label><input type="checkbox" data-filter="activity" value="Community Water Distribution"> Community Water Distribution</label><label><input type="checkbox" data-filter="activity" value="Construction Supplies"> Construction Supplies</label><label><input type="checkbox" data-filter="activity" value="Dairy"> Dairy</label><label><input type="checkbox" data-filter="activity" value="Embroidery"> Embroidery</label><label><input type="checkbox" data-filter="activity" value="Farm Supplies"> Farm Supplies</label><label><input type="checkbox" data-filter="activity" value="Farming"> Farming</label><label><input type="checkbox" data-filter="activity" value="Fish Selling"> Fish Selling</label><label><input type="checkbox" data-filter="activity" value="Flowers"> Flowers</label><label><input type="checkbox" data-filter="activity" value="Food"> Food</label><label><input type="checkbox" data-filter="activity" value="Food Market"> Food Market</label><label><input type="checkbox" data-filter="activity" value="Food Production/Sales"> Food Production/Sales</label><label><input type="checkbox" data-filter="activity" value="Food Stall"> Food Stall</label><label><input type="checkbox" data-filter="activity" value="Fruits &amp; Vegetables"> Fruits &amp; Vegetables</label><label><input type="checkbox" data-filter="activity" value="Grocery Store"> Grocery Store</label><label><input type="checkbox" data-filter="activity" value="Higher education costs"> Higher education costs</label><label><input type="checkbox" data-filter="activity" value="Knitting"> Knitting</label><label><input type="checkbox" data-filter="activity" value="Livestock"> Livestock</label><label><input type="checkbox" data-filter="activity" value="Manufacturing"> Manufacturing</label><label><input type="checkbox" data-filter="activity" value="Motorcycle Transport"> Motorcycle Transport</label><label><input type="checkbox" data-filter="activity" value="Other Renewable Energy"> Other Renewable Energy</label><label><input type="checkbox" data-filter="activity" value="Personal Housing Expenses"> Personal Housing Expenses</label><label><input type="checkbox" data-filter="activity" value="Personal Medical Expenses"> Personal Medical Expenses</label><label><input type="checkbox" data-filter="activity" value="Pigs"> Pigs</label><label><input type="checkbox" data-filter="activity" value="Poultry"> Poultry</label><label><input type="checkbox" data-filter="activity" value="Property"> Property</label><label><input type="checkbox" data-filter="activity" value="Services"> Services</label><label><input type="checkbox" data-filter="activity" value="Sewing"> Sewing</label><label><input type="checkbox" data-filter="activity" value="Solar Home Systems"> Solar Home Systems</label><label><input type="checkbox" data-filter="activity" value="Taxi"> Taxi</label><label><input type="checkbox" data-filter="activity" value="Tourism"> Tourism</label><label><input type="checkbox" data-filter="activity" value="Weaving"> Weaving</label></div></details>
+<details class="filter-group" data-group="theme"><summary>Kategorier</summary><div class="filter-options"><label><input type="checkbox" data-filter="theme" value="Flykting eller internflykting"> Flykting eller internflykting</label><label><input type="checkbox" data-filter="theme" value="Jordbruk och matsäkerhet"> Jordbruk och matsäkerhet</label><label><input type="checkbox" data-filter="theme" value="Klimatrisk: konventionell skönhetssalong"> Klimatrisk: konventionell skönhetssalong</label><label><input type="checkbox" data-filter="theme" value="Klimatrisk: köttbaserad mat"> Klimatrisk: köttbaserad mat</label><label><input type="checkbox" data-filter="theme" value="Klimatrisk: mejeri"> Klimatrisk: mejeri</label><label><input type="checkbox" data-filter="theme" value="Kvinnors egenmakt"> Kvinnors egenmakt</label><label><input type="checkbox" data-filter="theme" value="NYTT LAND"> NYTT LAND</label><label><input type="checkbox" data-filter="theme" value="Ren energi"> Ren energi</label><label><input type="checkbox" data-filter="theme" value="Reparation och återbruk"> Reparation och återbruk</label><label><input type="checkbox" data-filter="theme" value="Sanitet"> Sanitet</label><label><input type="checkbox" data-filter="theme" value="Utbildning"> Utbildning</label><label><input type="checkbox" data-filter="theme" value="Vatten"> Vatten</label></div></details>
+<details class="filter-group" data-group="country"><summary>Länder</summary><div class="filter-options"><label><input type="checkbox" data-filter="country" value="Brazil"> Brazil</label><label><input type="checkbox" data-filter="country" value="Burkina Faso"> Burkina Faso</label><label><input type="checkbox" data-filter="country" value="Colombia"> Colombia</label><label><input type="checkbox" data-filter="country" value="Costa Rica"> Costa Rica</label><label><input type="checkbox" data-filter="country" value="Dominican Republic"> Dominican Republic</label><label><input type="checkbox" data-filter="country" value="Ecuador"> Ecuador</label><label><input type="checkbox" data-filter="country" value="El Salvador"> El Salvador</label><label><input type="checkbox" data-filter="country" value="Guatemala"> Guatemala</label><label><input type="checkbox" data-filter="country" value="India"> India</label><label><input type="checkbox" data-filter="country" value="Kazakhstan"> Kazakhstan</label><label><input type="checkbox" data-filter="country" value="Kenya"> Kenya</label><label><input type="checkbox" data-filter="country" value="Kosovo"> Kosovo</label><label><input type="checkbox" data-filter="country" value="Madagascar"> Madagascar</label><label><input type="checkbox" data-filter="country" value="Mali"> Mali</label><label><input type="checkbox" data-filter="country" value="Moldova"> Moldova</label><label><input type="checkbox" data-filter="country" value="Mongolia"> Mongolia</label><label><input type="checkbox" data-filter="country" value="Nicaragua"> Nicaragua</label><label><input type="checkbox" data-filter="country" value="Paraguay"> Paraguay</label><label><input type="checkbox" data-filter="country" value="Peru"> Peru</label><label><input type="checkbox" data-filter="country" value="Philippines"> Philippines</label><label><input type="checkbox" data-filter="country" value="Puerto Rico"> Puerto Rico</label><label><input type="checkbox" data-filter="country" value="Rwanda"> Rwanda</label><label><input type="checkbox" data-filter="country" value="Senegal"> Senegal</label><label><input type="checkbox" data-filter="country" value="Sierra Leone"> Sierra Leone</label><label><input type="checkbox" data-filter="country" value="Tajikistan"> Tajikistan</label><label><input type="checkbox" data-filter="country" value="Tanzania"> Tanzania</label><label><input type="checkbox" data-filter="country" value="Timor-Leste"> Timor-Leste</label><label><input type="checkbox" data-filter="country" value="Tonga"> Tonga</label><label><input type="checkbox" data-filter="country" value="Turkey"> Turkey</label><label><input type="checkbox" data-filter="country" value="Uganda"> Uganda</label><label><input type="checkbox" data-filter="country" value="Vietnam"> Vietnam</label><label><input type="checkbox" data-filter="country" value="Zimbabwe"> Zimbabwe</label></div></details>
+<details class="filter-group" data-group="sector"><summary>Sektorer</summary><div class="filter-options"><label><input type="checkbox" data-filter="sector" value="Agriculture"> Agriculture</label><label><input type="checkbox" data-filter="sector" value="Arts"> Arts</label><label><input type="checkbox" data-filter="sector" value="Clean Energy"> Clean Energy</label><label><input type="checkbox" data-filter="sector" value="Construction"> Construction</label><label><input type="checkbox" data-filter="sector" value="Education"> Education</label><label><input type="checkbox" data-filter="sector" value="Food"> Food</label><label><input type="checkbox" data-filter="sector" value="Housing"> Housing</label><label><input type="checkbox" data-filter="sector" value="Sanitation &amp; Hygiene"> Sanitation &amp; Hygiene</label><label><input type="checkbox" data-filter="sector" value="Services"> Services</label><label><input type="checkbox" data-filter="sector" value="Water"> Water</label></div></details>
+<details class="filter-group" data-group="activity"><summary>Aktiviteter</summary><div class="filter-options"><label><input type="checkbox" data-filter="activity" value="Agriculture"> Agriculture</label><label><input type="checkbox" data-filter="activity" value="Animal Sales"> Animal Sales</label><label><input type="checkbox" data-filter="activity" value="Bakery"> Bakery</label><label><input type="checkbox" data-filter="activity" value="Barber Shop"> Barber Shop</label><label><input type="checkbox" data-filter="activity" value="Beauty Salon"> Beauty Salon</label><label><input type="checkbox" data-filter="activity" value="Beverages"> Beverages</label><label><input type="checkbox" data-filter="activity" value="Cereals"> Cereals</label><label><input type="checkbox" data-filter="activity" value="Communications"> Communications</label><label><input type="checkbox" data-filter="activity" value="Community Water Distribution"> Community Water Distribution</label><label><input type="checkbox" data-filter="activity" value="Construction Supplies"> Construction Supplies</label><label><input type="checkbox" data-filter="activity" value="Dairy"> Dairy</label><label><input type="checkbox" data-filter="activity" value="Farm Supplies"> Farm Supplies</label><label><input type="checkbox" data-filter="activity" value="Farming"> Farming</label><label><input type="checkbox" data-filter="activity" value="Fish Selling"> Fish Selling</label><label><input type="checkbox" data-filter="activity" value="Flowers"> Flowers</label><label><input type="checkbox" data-filter="activity" value="Food"> Food</label><label><input type="checkbox" data-filter="activity" value="Fruits &amp; Vegetables"> Fruits &amp; Vegetables</label><label><input type="checkbox" data-filter="activity" value="Higher education costs"> Higher education costs</label><label><input type="checkbox" data-filter="activity" value="Livestock"> Livestock</label><label><input type="checkbox" data-filter="activity" value="Mobile Transactions"> Mobile Transactions</label><label><input type="checkbox" data-filter="activity" value="Other Renewable Energy"> Other Renewable Energy</label><label><input type="checkbox" data-filter="activity" value="Personal Housing Expenses"> Personal Housing Expenses</label><label><input type="checkbox" data-filter="activity" value="Pigs"> Pigs</label><label><input type="checkbox" data-filter="activity" value="Poultry"> Poultry</label><label><input type="checkbox" data-filter="activity" value="Services"> Services</label><label><input type="checkbox" data-filter="activity" value="Solar Home Systems"> Solar Home Systems</label><label><input type="checkbox" data-filter="activity" value="Textiles"> Textiles</label><label><input type="checkbox" data-filter="activity" value="Toilets &amp; Sanitation Systems"> Toilets &amp; Sanitation Systems</label><label><input type="checkbox" data-filter="activity" value="Tourism"> Tourism</label><label><input type="checkbox" data-filter="activity" value="Water Storage/Harvesting"> Water Storage/Harvesting</label><label><input type="checkbox" data-filter="activity" value="Weaving"> Weaving</label></div></details>
 <details class="filter-group" data-group="score"><summary>Poäng</summary><div class="filter-options">
 <label><input type="checkbox" data-filter="score" value="positive"> Minst 1 poäng</label>
 <label><input type="checkbox" data-filter="score" value="three"> ★★★ eller bättre (10+)</label>
@@ -36,42 +36,6 @@ footer{margin-top:22px;color:#6b7974;font-size:.76rem} [hidden]{display:none!imp
 <button id="reset" type="button">Nollställ filter</button>
 <div class="summary"><span id="count"></span><span class="legend">★ 1–5 · ★★ 6–9 · ★★★ 10–14 · ★★★★ 15–19 · ★★★★★ 20+</span></div>
 </section><section id="loans">
-        <article data-score="20" data-country="Uganda"
-          data-sector="Food" data-activity="Fish Selling"
-          data-labels="Vatten|Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt|Flykting eller internflykting">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218763">Piera</a></h2>
-          <div class="score">20 p · ★★★★★</div></div>
-          <p class="place">Uganda · Fish Selling</p>
-          <p class="purpose">to add stock to the business.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag">🕊️ Flykting eller internflykting +6</span></div>
-        </article>
-        <article data-score="19" data-country="Dominican Republic"
-          data-sector="Food" data-activity="Food"
-          data-labels="Utbildning|Kvinnors egenmakt|NYTT LAND">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3204778">Gs Voluntad De Dios : Grupo 2 Group</a></h2>
-          <div class="score">19 p · ★★★★☆</div></div>
-          <p class="place">Dominican Republic · Food</p>
-          <p class="purpose">to buy salami, chicken, plantain, flour, etc.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
-        </article>
-        <article data-score="18" data-country="India"
-          data-sector="Agriculture" data-activity="Dairy"
-          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt|NYTT LAND">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3205638">Gufrana And Group</a></h2>
-          <div class="score">18 p · ★★★★☆</div></div>
-          <p class="place">India · Dairy</p>
-          <p class="purpose">to expand her milk business by the purchase of a cow to sell milk, butter, curd and ghee.</p>
-          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
-        </article>
-        <article data-score="18" data-country="India"
-          data-sector="Agriculture" data-activity="Dairy"
-          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt|NYTT LAND">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3215043">Kalyani</a></h2>
-          <div class="score">18 p · ★★★★☆</div></div>
-          <p class="place">India · Dairy</p>
-          <p class="purpose">to expand her dairy products business by increasing inventory.</p>
-          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
-        </article>
         <article data-score="18" data-country="India"
           data-sector="Agriculture" data-activity="Farm Supplies"
           data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt|NYTT LAND">
@@ -99,41 +63,23 @@ footer{margin-top:22px;color:#6b7974;font-size:.76rem} [hidden]{display:none!imp
           <p class="purpose">to purchase seed, fertilizer, and pesticides for paddy, mustard, jute ,and vegetables cultivation.</p>
           <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
-        <article data-score="18" data-country="India"
-          data-sector="Food" data-activity="Cereals"
-          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt|NYTT LAND">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3213328">Ranjeeda And Group</a></h2>
-          <div class="score">18 p · ★★★★☆</div></div>
-          <p class="place">India · Cereals</p>
-          <p class="purpose">to expand the paddy business by increasing inventory.</p>
-          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
-        </article>
-        <article data-score="16" data-country="Moldova"
-          data-sector="Water" data-activity="Community Water Distribution"
-          data-labels="Vatten|Sanitet|Reparation och återbruk|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218892">Diana</a></h2>
-          <div class="score">16 p · ★★★★☆</div></div>
-          <p class="place">Moldova · Community Water Distribution</p>
-          <p class="purpose">to connect the house to the aqueduct.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🚽 Sanitet +3</span> <span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="16" data-country="Dominican Republic"
-          data-sector="Services" data-activity="Beauty Salon"
+        <article data-score="16" data-country="India"
+          data-sector="Food" data-activity="Fruits &amp; Vegetables"
           data-labels="Kvinnors egenmakt|NYTT LAND">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3203527">Gs El Cachipero Group</a></h2>
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3207115">Hemo And Group</a></h2>
           <div class="score">16 p · ★★★★☆</div></div>
-          <p class="place">Dominican Republic · Beauty Salon</p>
-          <p class="purpose">to buy hair extensions, styling gels, hydration gels, combs, and other supplies for her salon.</p>
+          <p class="place">India · Fruits &amp; Vegetables</p>
+          <p class="purpose">to expand her vegetable business by buying more vegetables.</p>
           <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
-        <article data-score="16" data-country="Moldova"
-          data-sector="Housing" data-activity="Personal Housing Expenses"
-          data-labels="Vatten|Reparation och återbruk|Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214341">Maria</a></h2>
+        <article data-score="16" data-country="Puerto Rico"
+          data-sector="Services" data-activity="Communications"
+          data-labels="Kvinnors egenmakt|NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3212116">Isamar Acevedo</a></h2>
           <div class="score">16 p · ★★★★☆</div></div>
-          <p class="place">Moldova · Personal Housing Expenses</p>
-          <p class="purpose">to equip a kitchen.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          <p class="place">Puerto Rico · Communications</p>
+          <p class="purpose">a PR-based digital marketing business build a demand generation team to expand outreach &amp; acquire new clients.</p>
+          <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
         <article data-score="16" data-country="India"
           data-sector="Construction" data-activity="Construction Supplies"
@@ -144,356 +90,104 @@ footer{margin-top:22px;color:#6b7974;font-size:.76rem} [hidden]{display:none!imp
           <p class="purpose">to purchase woods and necessary materials for a shuttering business.</p>
           <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
-        <article data-score="16" data-country="Nicaragua"
-          data-sector="Housing" data-activity="Personal Housing Expenses"
-          data-labels="Vatten|Reparation och återbruk|Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3198758">Yara Sanira</a></h2>
+        <article data-score="16" data-country="India"
+          data-sector="Food" data-activity="Fruits &amp; Vegetables"
+          data-labels="Kvinnors egenmakt|NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3205697">Pratima And Group</a></h2>
           <div class="score">16 p · ★★★★☆</div></div>
-          <p class="place">Nicaragua · Personal Housing Expenses</p>
-          <p class="purpose">to buy construction materials to repair her kitchen and fix the leaks.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          <p class="place">India · Fruits &amp; Vegetables</p>
+          <p class="purpose">to expand her vegetable business by buying more vegetables.</p>
+          <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
-        <article data-score="15" data-country="India"
-          data-sector="Agriculture" data-activity="Dairy"
-          data-labels="Vatten|Jordbruk och matsäkerhet|NYTT LAND">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3215053">Asokan</a></h2>
-          <div class="score">15 p · ★★★★☆</div></div>
-          <p class="place">India · Dairy</p>
-          <p class="purpose">to purchase dairy cows and expand his dairy farming business.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
+        <article data-score="16" data-country="India"
+          data-sector="Food" data-activity="Cereals"
+          data-labels="Kvinnors egenmakt|NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3213328">Ranjeeda And Group</a></h2>
+          <div class="score">16 p · ★★★★☆</div></div>
+          <p class="place">India · Cereals</p>
+          <p class="purpose">to expand the paddy business by increasing inventory.</p>
+          <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
-        <article data-score="15" data-country="Kyrgyzstan"
-          data-sector="Housing" data-activity="Personal Housing Expenses"
-          data-labels="Vatten|Reparation och återbruk|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3222125">Elmira</a></h2>
-          <div class="score">15 p · ★★★★☆</div></div>
-          <p class="place">Kyrgyzstan · Personal Housing Expenses</p>
-          <p class="purpose">to install plastic windows.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        <article data-score="16" data-country="India"
+          data-sector="Food" data-activity="Fruits &amp; Vegetables"
+          data-labels="Kvinnors egenmakt|NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3205699">Sabera And Group</a></h2>
+          <div class="score">16 p · ★★★★☆</div></div>
+          <p class="place">India · Fruits &amp; Vegetables</p>
+          <p class="purpose">to expand her vegetable business by buying more vegetables.</p>
+          <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
-        <article data-score="15" data-country="Tajikistan"
-          data-sector="Health" data-activity="Personal Medical Expenses"
-          data-labels="Vatten|Sanitet|Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3207403">Husniya</a></h2>
-          <div class="score">15 p · ★★★★☆</div></div>
-          <p class="place">Tajikistan · Personal Medical Expenses</p>
-          <p class="purpose">to cover unexpected personal medical treatment.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🚽 Sanitet +3</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="15" data-country="Kosovo"
-          data-sector="Agriculture" data-activity="Farming"
-          data-labels="Vatten|Jordbruk och matsäkerhet|NYTT LAND">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218740">Tahir</a></h2>
-          <div class="score">15 p · ★★★★☆</div></div>
-          <p class="place">Kosovo · Farming</p>
-          <p class="purpose">to purchase quality seeds, artificial fertilizer, and essential farming equipment.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
-        </article>
-        <article data-score="14" data-country="Mali"
-          data-sector="Agriculture" data-activity="Farming"
-          data-labels="Vatten|Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3208112">Benkadi Group</a></h2>
-          <div class="score">14 p · ★★★☆☆</div></div>
-          <p class="place">Mali · Farming</p>
-          <p class="purpose">finance the farming of peanuts, sesame seeds and watermelons so as to have a good harvest.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="14" data-country="Guatemala"
-          data-sector="Agriculture" data-activity="Agriculture"
-          data-labels="Vatten|Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3213672">Cruzchut Group</a></h2>
-          <div class="score">14 p · ★★★☆☆</div></div>
-          <p class="place">Guatemala · Agriculture</p>
-          <p class="purpose">to buy more chickens, pigs, feed and fertilizer for tomatoes.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="14" data-country="Rwanda"
-          data-sector="Agriculture" data-activity="Farming"
-          data-labels="Vatten|Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3220583">Jeanne</a></h2>
-          <div class="score">14 p · ★★★☆☆</div></div>
-          <p class="place">Rwanda · Farming</p>
-          <p class="purpose">to expand cassava farming by purchasing improved seeds and fertilizer in order to increase productivity.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="14" data-country="Guatemala"
-          data-sector="Agriculture" data-activity="Livestock"
-          data-labels="Vatten|Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3224587">Kairos Group</a></h2>
-          <div class="score">14 p · ★★★☆☆</div></div>
-          <p class="place">Guatemala · Livestock</p>
-          <p class="purpose">to buy more chickens, a cow, and feed for them.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="14" data-country="Madagascar"
-          data-sector="Clean Energy" data-activity="Solar Home Systems"
-          data-labels="Ren energi|Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3223328">Malala Hélène</a></h2>
-          <div class="score">14 p · ★★★☆☆</div></div>
-          <p class="place">Madagascar · Solar Home Systems</p>
-          <p class="purpose">to buy a solar kit with a TV.</p>
-          <div class="tags"><span class="tag">☀️ Ren energi +5</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="14" data-country="Madagascar"
-          data-sector="Clean Energy" data-activity="Solar Home Systems"
-          data-labels="Ren energi|Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3221239">Manahira</a></h2>
-          <div class="score">14 p · ★★★☆☆</div></div>
-          <p class="place">Madagascar · Solar Home Systems</p>
-          <p class="purpose">to buy a solar kit that includes a television.</p>
-          <div class="tags"><span class="tag">☀️ Ren energi +5</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="14" data-country="Madagascar"
-          data-sector="Clean Energy" data-activity="Solar Home Systems"
-          data-labels="Ren energi|Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3221425">Marie Emelie Nadya</a></h2>
-          <div class="score">14 p · ★★★☆☆</div></div>
-          <p class="place">Madagascar · Solar Home Systems</p>
-          <p class="purpose">to buy a solar kit including a TV set.</p>
-          <div class="tags"><span class="tag">☀️ Ren energi +5</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="14" data-country="Uganda"
-          data-sector="Agriculture" data-activity="Livestock"
-          data-labels="Vatten|Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3209992">Monica</a></h2>
-          <div class="score">14 p · ★★★☆☆</div></div>
-          <p class="place">Uganda · Livestock</p>
-          <p class="purpose">to buy more cows for fattening and sell to generate revenue.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="14" data-country="Ecuador"
-          data-sector="Agriculture" data-activity="Farming"
-          data-labels="Vatten|Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214393">Monica Rocio</a></h2>
-          <div class="score">14 p · ★★★☆☆</div></div>
-          <p class="place">Ecuador · Farming</p>
-          <p class="purpose">to purchase agricultural supplies.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="14" data-country="Madagascar"
-          data-sector="Clean Energy" data-activity="Solar Home Systems"
-          data-labels="Ren energi|Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3223364">Zoo Clairiane</a></h2>
-          <div class="score">14 p · ★★★☆☆</div></div>
-          <p class="place">Madagascar · Solar Home Systems</p>
-          <p class="purpose">to buy a solar kit with a TV.</p>
-          <div class="tags"><span class="tag">☀️ Ren energi +5</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        <article data-score="16" data-country="India"
+          data-sector="Food" data-activity="Fruits &amp; Vegetables"
+          data-labels="Kvinnors egenmakt|NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3205599">Shakila And Group</a></h2>
+          <div class="score">16 p · ★★★★☆</div></div>
+          <p class="place">India · Fruits &amp; Vegetables</p>
+          <p class="purpose">to expand her vegetables business by buying more vegetables.</p>
+          <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
         <article data-score="13" data-country="Dominican Republic"
-          data-sector="Services" data-activity="Tourism"
-          data-labels="Utbildning|NYTT LAND">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3213669">Bernardo</a></h2>
+          data-sector="Services" data-activity="Beauty Salon"
+          data-labels="Klimatrisk: konventionell skönhetssalong|Kvinnors egenmakt|NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3203527">Gs El Cachipero Group</a></h2>
           <div class="score">13 p · ★★★☆☆</div></div>
-          <p class="place">Dominican Republic · Tourism</p>
-          <p class="purpose">to buy t-shirts, caps, promotional items, advertising material, etc.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
+          <p class="place">Dominican Republic · Beauty Salon</p>
+          <p class="purpose">to buy hair extensions, styling gels, hydration gels, combs, and other supplies for her salon.</p>
+          <div class="tags"><span class="tag climate-risk">🌡️ Klimatrisk: konventionell skönhetssalong -3</span> <span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
-        <article data-score="13" data-country="Moldova"
-          data-sector="Housing" data-activity="Property"
-          data-labels="Vatten|Reparation och återbruk|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3217874">Inga</a></h2>
-          <div class="score">13 p · ★★★☆☆</div></div>
-          <p class="place">Moldova · Property</p>
-          <p class="purpose">to purchase a home.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="13" data-country="Tonga"
-          data-sector="Arts" data-activity="Knitting"
-          data-labels="Vatten|Reparation och återbruk|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3223121">Kafo&#x27;atu</a></h2>
-          <div class="score">13 p · ★★★☆☆</div></div>
-          <p class="place">Tonga · Knitting</p>
-          <p class="purpose">to buy enough pandanus leaves and filo needed for her knitting ta&#x27;ovalala business, and an oven stove for her cooking and baking.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="13" data-country="Dominican Republic"
-          data-sector="Services" data-activity="Barber Shop"
-          data-labels="Utbildning|NYTT LAND">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3204091">Luis</a></h2>
-          <div class="score">13 p · ★★★☆☆</div></div>
-          <p class="place">Dominican Republic · Barber Shop</p>
-          <p class="purpose">to buy a cutting machine, combs, scissors, shaving razors, spray bottles, etc.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
-        </article>
-        <article data-score="13" data-country="Moldova"
-          data-sector="Housing" data-activity="Personal Housing Expenses"
-          data-labels="Reparation och återbruk|Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214338">Maria</a></h2>
-          <div class="score">13 p · ★★★☆☆</div></div>
-          <p class="place">Moldova · Personal Housing Expenses</p>
-          <p class="purpose">to complete renovation work on the entrance to the house.</p>
-          <div class="tags"><span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="12" data-country="Tajikistan"
-          data-sector="Agriculture" data-activity="Cattle"
-          data-labels="Reparation och återbruk|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3212649">Anorkhol</a></h2>
+        <article data-score="12" data-country="Dominican Republic"
+          data-sector="Food" data-activity="Food"
+          data-labels="Klimatrisk: köttbaserad mat|Kvinnors egenmakt|NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3204778">Gs Voluntad De Dios : Grupo 2 Group</a></h2>
           <div class="score">12 p · ★★★☆☆</div></div>
-          <p class="place">Tajikistan · Cattle</p>
-          <p class="purpose">to purchase a pair of young bulls to gradually expand her herd over time.</p>
-          <div class="tags"><span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="12" data-country="Colombia"
-          data-sector="Agriculture" data-activity="Agriculture"
-          data-labels="Reparation och återbruk|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3217583">Claudia</a></h2>
-          <div class="score">12 p · ★★★☆☆</div></div>
-          <p class="place">Colombia · Agriculture</p>
-          <p class="purpose">to purchase an automatic brush cutter that will simplify the cleaning and weeding of her coffee plantation.</p>
-          <div class="tags"><span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="12" data-country="Guatemala"
-          data-sector="Arts" data-activity="Weaving"
-          data-labels="Vatten|Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3220793">Dora Paula</a></h2>
-          <div class="score">12 p · ★★★☆☆</div></div>
-          <p class="place">Guatemala · Weaving</p>
-          <p class="purpose">to buy yarn, as well as more complete traditional costumes.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="12" data-country="El Salvador"
-          data-sector="Food" data-activity="Food Production/Sales"
-          data-labels="Vatten|Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3217550">Lorena Patricia</a></h2>
-          <div class="score">12 p · ★★★☆☆</div></div>
-          <p class="place">El Salvador · Food Production/Sales</p>
-          <p class="purpose">to buy large quantities of corn to make pupusas [stuffed tortillas] for sale and other ingredients for the other dishes she sells.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="12" data-country="Timor-Leste"
-          data-sector="Arts" data-activity="Weaving"
-          data-labels="Vatten|Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3213863">Margarida</a></h2>
-          <div class="score">12 p · ★★★☆☆</div></div>
-          <p class="place">Timor-Leste · Weaving</p>
-          <p class="purpose">to buy more thread in many colors and a new wooden loom to weave more tais.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          <p class="place">Dominican Republic · Food</p>
+          <p class="purpose">to buy salami, chicken, plantain, flour, etc.</p>
+          <div class="tags"><span class="tag climate-risk">🌡️ Klimatrisk: köttbaserad mat -4</span> <span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
         <article data-score="12" data-country="India"
           data-sector="Agriculture" data-activity="Dairy"
-          data-labels="Jordbruk och matsäkerhet|NYTT LAND">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3216852">Murali</a></h2>
+          data-labels="Jordbruk och matsäkerhet|Klimatrisk: mejeri|Kvinnors egenmakt|NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3205638">Gufrana And Group</a></h2>
           <div class="score">12 p · ★★★☆☆</div></div>
           <p class="place">India · Dairy</p>
-          <p class="purpose">to expand his dairy farming business by purchasing dairy cows.</p>
+          <p class="purpose">to expand her milk business by the purchase of a cow to sell milk, butter, curd and ghee.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag climate-risk">🌡️ Klimatrisk: mejeri -6</span> <span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
+        </article>
+        <article data-score="12" data-country="India"
+          data-sector="Agriculture" data-activity="Dairy"
+          data-labels="Jordbruk och matsäkerhet|Klimatrisk: mejeri|Kvinnors egenmakt|NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3215043">Kalyani</a></h2>
+          <div class="score">12 p · ★★★☆☆</div></div>
+          <p class="place">India · Dairy</p>
+          <p class="purpose">to expand her dairy products business by increasing inventory.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag climate-risk">🌡️ Klimatrisk: mejeri -6</span> <span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
+        </article>
+        <article data-score="12" data-country="India"
+          data-sector="Food" data-activity="Food"
+          data-labels="Jordbruk och matsäkerhet|NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3211316">Kannan</a></h2>
+          <div class="score">12 p · ★★★☆☆</div></div>
+          <p class="place">India · Food</p>
+          <p class="purpose">to purchase groundnut seeds to expand his oil mill business.</p>
           <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
-        <article data-score="12" data-country="Moldova"
-          data-sector="Housing" data-activity="Property"
-          data-labels="Reparation och återbruk|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214343">Raisa</a></h2>
+        <article data-score="12" data-country="Uganda"
+          data-sector="Food" data-activity="Fish Selling"
+          data-labels="Kvinnors egenmakt|Flykting eller internflykting">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218763">Piera</a></h2>
           <div class="score">12 p · ★★★☆☆</div></div>
-          <p class="place">Moldova · Property</p>
-          <p class="purpose">to build a fence around her home.</p>
-          <div class="tags"><span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          <p class="place">Uganda · Fish Selling</p>
+          <p class="purpose">to add stock to the business.</p>
+          <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span> <span class="tag">🕊️ Flykting eller internflykting +6</span></div>
         </article>
-        <article data-score="12" data-country="Rwanda"
-          data-sector="Water" data-activity="Community Water Distribution"
-          data-labels="Vatten|Sanitet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3219724">Soleil</a></h2>
-          <div class="score">12 p · ★★★☆☆</div></div>
-          <p class="place">Rwanda · Community Water Distribution</p>
-          <p class="purpose">to purchase a tuk-tuk for water deliveries.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🚽 Sanitet +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Timor-Leste"
-          data-sector="Agriculture" data-activity="Animal Sales"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214708">Agueda</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Timor-Leste · Animal Sales</p>
-          <p class="purpose">to buy more young cattle, feed, and vitamins to keep her cattle healthy.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Kazakhstan"
-          data-sector="Agriculture" data-activity="Livestock"
-          data-labels="Vatten|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3215885">Aigul</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Kazakhstan · Livestock</p>
-          <p class="purpose">to purchase horses.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="El Salvador"
-          data-sector="Agriculture" data-activity="Cattle"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3213687">Ana Margarita</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">El Salvador · Cattle</p>
-          <p class="purpose">to buy two calves to raise and fatten before selling them.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="El Salvador"
-          data-sector="Food" data-activity="Food Production/Sales"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3216077">Ana Marina</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">El Salvador · Food Production/Sales</p>
-          <p class="purpose">to buy a stove to facilitate making tortillas which will improve production.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Colombia"
-          data-sector="Agriculture" data-activity="Livestock"
-          data-labels="Vatten|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3215328">Anny</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Colombia · Livestock</p>
-          <p class="purpose">to purchase a motorcycle that will simplify her travel between her farm and her home.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Colombia"
-          data-sector="Transportation" data-activity="Motorcycle Transport"
-          data-labels="Vatten|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3215322">Bernarda</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Colombia · Motorcycle Transport</p>
-          <p class="purpose">to purchase a motorcycle that will simplify her transportation when purchasing the fruits and vegetables she sells in her business.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Guatemala"
-          data-sector="Arts" data-activity="Weaving"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3205005">Chelense 1 Group</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Guatemala · Weaving</p>
-          <p class="purpose">to purchase thread to continue making typical güipiles [blouses].</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Colombia"
+        <article data-score="12" data-country="Kosovo"
           data-sector="Agriculture" data-activity="Farming"
-          data-labels="Vatten|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3216961">Esperanza Del Carmen</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Colombia · Farming</p>
-          <p class="purpose">to buy manure for her banana crop.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Rwanda"
-          data-sector="Agriculture" data-activity="Pigs"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3188983">Florence</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Rwanda · Pigs</p>
-          <p class="purpose">to purchase more pigs to sell.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Senegal"
-          data-sector="Agriculture" data-activity="Agriculture"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214135">Gpf Des Femmesde Dodji Group</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Senegal · Agriculture</p>
-          <p class="purpose">to buy seedlings for chili peppers, lettuce, and cabbage and to buy two sheep for fattening.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Tajikistan"
-          data-sector="Agriculture" data-activity="Cattle"
-          data-labels="Vatten|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3206930">Gunchagul</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Tajikistan · Cattle</p>
-          <p class="purpose">to purchase a pair of young bulls to increase the size of her herd and strengthen her family&#x27;s income.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          data-labels="Jordbruk och matsäkerhet|NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218740">Tahir</a></h2>
+          <div class="score">12 p · ★★★☆☆</div></div>
+          <p class="place">Kosovo · Farming</p>
+          <p class="purpose">to purchase quality seeds, artificial fertilizer, and essential farming equipment.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
         <article data-score="11" data-country="Madagascar"
           data-sector="Clean Energy" data-activity="Solar Home Systems"
@@ -504,60 +198,6 @@ footer{margin-top:22px;color:#6b7974;font-size:.76rem} [hidden]{display:none!imp
           <p class="purpose">to buy solar energy equipment that includes a television.</p>
           <div class="tags"><span class="tag">☀️ Ren energi +5</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
-        <article data-score="11" data-country="Vietnam"
-          data-sector="Agriculture" data-activity="Farming"
-          data-labels="Vatten|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3200783">Hoa</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Vietnam · Farming</p>
-          <p class="purpose">to buy acacia trees.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Vietnam"
-          data-sector="Agriculture" data-activity="Animal Sales"
-          data-labels="Vatten|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3205058">Hưng</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Vietnam · Animal Sales</p>
-          <p class="purpose">to buy more breeding cattle.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Philippines"
-          data-sector="Agriculture" data-activity="Farming"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3210639">Jennifer</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Philippines · Farming</p>
-          <p class="purpose">to buy fertilizer and pay for labor costs.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="El Salvador"
-          data-sector="Agriculture" data-activity="Flowers"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3199576">Jessica Nohemy</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">El Salvador · Flowers</p>
-          <p class="purpose">to buy a wider variety of ornamental plants and a new cart to transport and sell them.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Uganda"
-          data-sector="Agriculture" data-activity="Farming"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3216862">Kahooma Abeterine Group</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Uganda · Farming</p>
-          <p class="purpose">to purchase manure for her banana plantation.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="El Salvador"
-          data-sector="Agriculture" data-activity="Farming"
-          data-labels="Vatten|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3211048">Karina Yamileth</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">El Salvador · Farming</p>
-          <p class="purpose">to purchase seeds, fertilizers, herbicides, and pay labor costs to do maintenance on her corn crop.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
         <article data-score="11" data-country="Zimbabwe"
           data-sector="Clean Energy" data-activity="Other Renewable Energy"
           data-labels="Ren energi|Kvinnors egenmakt">
@@ -567,86 +207,50 @@ footer{margin-top:22px;color:#6b7974;font-size:.76rem} [hidden]{display:none!imp
           <p class="purpose">to purchase solar home systems that will be financed for a thousand households in Zimbabwe.</p>
           <div class="tags"><span class="tag">☀️ Ren energi +5</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
-        <article data-score="11" data-country="Uganda"
-          data-sector="Agriculture" data-activity="Farming"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3210334">Loyce</a></h2>
+        <article data-score="11" data-country="Madagascar"
+          data-sector="Clean Energy" data-activity="Solar Home Systems"
+          data-labels="Ren energi|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3223328">Malala Hélène</a></h2>
           <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Uganda · Farming</p>
-          <p class="purpose">to buy manure and mulch to improve soils for farming to obtain better harvests to sell.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          <p class="place">Madagascar · Solar Home Systems</p>
+          <p class="purpose">to buy a solar kit with a TV.</p>
+          <div class="tags"><span class="tag">☀️ Ren energi +5</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
-        <article data-score="11" data-country="Ecuador"
-          data-sector="Agriculture" data-activity="Agriculture"
-          data-labels="Vatten|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3207171">Marjorie Eloiza</a></h2>
+        <article data-score="11" data-country="Madagascar"
+          data-sector="Clean Energy" data-activity="Solar Home Systems"
+          data-labels="Ren energi|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3221239">Manahira</a></h2>
           <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Ecuador · Agriculture</p>
-          <p class="purpose">to buy feed and medicine for both chickens and pigs, as well as fertilizers and insecticides for crops.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          <p class="place">Madagascar · Solar Home Systems</p>
+          <p class="purpose">to buy a solar kit that includes a television.</p>
+          <div class="tags"><span class="tag">☀️ Ren energi +5</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
-        <article data-score="11" data-country="Burkina Faso"
-          data-sector="Agriculture" data-activity="Poultry"
-          data-labels="Vatten|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3222247">Oumou</a></h2>
+        <article data-score="11" data-country="Madagascar"
+          data-sector="Clean Energy" data-activity="Solar Home Systems"
+          data-labels="Ren energi|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3221425">Marie Emelie Nadya</a></h2>
           <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Burkina Faso · Poultry</p>
-          <p class="purpose">to buy chicks to raise and resell as chickens.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          <p class="place">Madagascar · Solar Home Systems</p>
+          <p class="purpose">to buy a solar kit including a TV set.</p>
+          <div class="tags"><span class="tag">☀️ Ren energi +5</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
-        <article data-score="11" data-country="Vietnam"
-          data-sector="Agriculture" data-activity="Farming"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3206110">Phượng</a></h2>
+        <article data-score="11" data-country="Madagascar"
+          data-sector="Clean Energy" data-activity="Solar Home Systems"
+          data-labels="Ren energi|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3223364">Zoo Clairiane</a></h2>
           <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Vietnam · Farming</p>
-          <p class="purpose">to buy jackfruit and pomelo seedlings, along with organic fertilizer.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          <p class="place">Madagascar · Solar Home Systems</p>
+          <p class="purpose">to buy a solar kit with a TV.</p>
+          <div class="tags"><span class="tag">☀️ Ren energi +5</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
-        <article data-score="11" data-country="Mongolia"
-          data-sector="Agriculture" data-activity="Livestock"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218686">Purevsuren</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Mongolia · Livestock</p>
-          <p class="purpose">to purchase calves.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Vietnam"
-          data-sector="Agriculture" data-activity="Agriculture"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3200734">Thoa</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Vietnam · Agriculture</p>
-          <p class="purpose">to buy additional acacia seedlings.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="11" data-country="Vietnam"
-          data-sector="Agriculture" data-activity="Agriculture"
-          data-labels="Utbildning|Jordbruk och matsäkerhet|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3192457">Triều</a></h2>
-          <div class="score">11 p · ★★★☆☆</div></div>
-          <p class="place">Vietnam · Agriculture</p>
-          <p class="purpose">to buy acacia seedlings, organic fertilizer, and hiring labor for planting.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="10" data-country="Samoa"
-          data-sector="Transportation" data-activity="Taxi"
-          data-labels="Reparation och återbruk|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3216409">Faauuga</a></h2>
+        <article data-score="10" data-country="Dominican Republic"
+          data-sector="Services" data-activity="Tourism"
+          data-labels="NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3213669">Bernardo</a></h2>
           <div class="score">10 p · ★★★☆☆</div></div>
-          <p class="place">Samoa · Taxi</p>
-          <p class="purpose">to purchase new tyres and new paint.</p>
-          <div class="tags"><span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="10" data-country="Nicaragua"
-          data-sector="Housing" data-activity="Personal Housing Expenses"
-          data-labels="Reparation och återbruk|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3207498">Ines De Los Angeles</a></h2>
-          <div class="score">10 p · ★★★☆☆</div></div>
-          <p class="place">Nicaragua · Personal Housing Expenses</p>
-          <p class="purpose">to purchase zinc sheeting, beams, and pay the labor costs necessary to replace the roof on the living room and a bedroom.</p>
-          <div class="tags"><span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          <p class="place">Dominican Republic · Tourism</p>
+          <p class="purpose">to buy t-shirts, caps, promotional items, advertising material, etc.</p>
+          <div class="tags"><span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
         <article data-score="10" data-country="Brazil"
           data-sector="Housing" data-activity="Personal Housing Expenses"
@@ -675,59 +279,23 @@ footer{margin-top:22px;color:#6b7974;font-size:.76rem} [hidden]{display:none!imp
           <p class="purpose">to repair her laptop and organize her consultation room.</p>
           <div class="tags"><span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
-        <article data-score="10" data-country="Brazil"
-          data-sector="Services" data-activity="Sewing"
-          data-labels="Reparation och återbruk|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3217060">Maria</a></h2>
+        <article data-score="10" data-country="Dominican Republic"
+          data-sector="Services" data-activity="Barber Shop"
+          data-labels="NYTT LAND">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3204091">Luis</a></h2>
           <div class="score">10 p · ★★★☆☆</div></div>
-          <p class="place">Brazil · Sewing</p>
-          <p class="purpose">to buy the necessary materials and to pay for the labor to carry out a renovation of her workshop&#x27;s electrical setup.</p>
-          <div class="tags"><span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          <p class="place">Dominican Republic · Barber Shop</p>
+          <p class="purpose">to buy a cutting machine, combs, scissors, shaving razors, spray bottles, etc.</p>
+          <div class="tags"><span class="tag new-country">🆕🌍 NYTT LAND +10</span></div>
         </article>
         <article data-score="10" data-country="Nicaragua"
           data-sector="Housing" data-activity="Personal Housing Expenses"
-          data-labels="Vatten|Sanitet|Reparation och återbruk">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3210432">Saul Francisco</a></h2>
+          data-labels="Reparation och återbruk|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3198758">Yara Sanira</a></h2>
           <div class="score">10 p · ★★★☆☆</div></div>
           <p class="place">Nicaragua · Personal Housing Expenses</p>
-          <p class="purpose">to make improvements to his home by purchasing a toilet and paint in bulk.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">🚽 Sanitet +3</span> <span class="tag">♻️ Reparation och återbruk +4</span></div>
-        </article>
-        <article data-score="9" data-country="El Salvador"
-          data-sector="Food" data-activity="Food Production/Sales"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3199466">Adita Elizabeth</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">El Salvador · Food Production/Sales</p>
-          <p class="purpose">to buy tables, chairs and other furniture to kit out her food business and improve her customer service.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="El Salvador"
-          data-sector="Food" data-activity="Food Production/Sales"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214510">Ana Francisca</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">El Salvador · Food Production/Sales</p>
-          <p class="purpose">to buy corn, oil and other supplies to make tamales, and also build a kitchen for cooking.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Senegal"
-          data-sector="Food" data-activity="Food Market"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218338">Andeu Ligueye Dar Salam Group</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Senegal · Food Market</p>
-          <p class="purpose">to buy and sell food products.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Turkey"
-          data-sector="Services" data-activity="Beauty Salon"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3221098">Ayşe</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Turkey · Beauty Salon</p>
-          <p class="purpose">to purchase additional hairdressing products for her salon.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+          <p class="purpose">to buy construction materials to repair her kitchen and fix the leaks.</p>
+          <div class="tags"><span class="tag">♻️ Reparation och återbruk +4</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
         <article data-score="9" data-country="Tajikistan"
           data-sector="Education" data-activity="Higher education costs"
@@ -738,78 +306,6 @@ footer{margin-top:22px;color:#6b7974;font-size:.76rem} [hidden]{display:none!imp
           <p class="purpose">to pay for her child’s university tuition fees.</p>
           <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
-        <article data-score="9" data-country="El Salvador"
-          data-sector="Food" data-activity="Food Production/Sales"
-          data-labels="Vatten|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3216190">Blanca Edith</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">El Salvador · Food Production/Sales</p>
-          <p class="purpose">to buy sacks of corn, the essential raw material for making tortillas.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="El Salvador"
-          data-sector="Food" data-activity="Food Production/Sales"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3213630">Blanca Estela</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">El Salvador · Food Production/Sales</p>
-          <p class="purpose">to buy two sacks of corn and a new stove to strengthen her business of making and selling tortillas.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="El Salvador"
-          data-sector="Food" data-activity="Beverages"
-          data-labels="Vatten|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3217184">Carmen Lilian</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">El Salvador · Beverages</p>
-          <p class="purpose">to buy a cart that will help transport the coolers, as well as buy more products to resell.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="El Salvador"
-          data-sector="Food" data-activity="Food Production/Sales"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3211085">Cecilia Esperanza</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">El Salvador · Food Production/Sales</p>
-          <p class="purpose">to buy corn, beans, plantains, oil, cabbage, and other ingredients to prepare and sell traditional foods.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Guatemala"
-          data-sector="Arts" data-activity="Weaving"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3205018">Chelense 3 Group</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Guatemala · Weaving</p>
-          <p class="purpose">to purchase thread to continue making typical güipiles [blouses].</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Senegal"
-          data-sector="Food" data-activity="Fish Selling"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3207090">Colomba Group</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Senegal · Fish Selling</p>
-          <p class="purpose">to buy smoked fish.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Paraguay"
-          data-sector="Food" data-activity="Grocery Store"
-          data-labels="Vatten|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3208864">Cuña De Oro Group</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Paraguay · Grocery Store</p>
-          <p class="purpose">to buy supplies for selling groceries.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Senegal"
-          data-sector="Food" data-activity="Beverages"
-          data-labels="Vatten|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3217360">Dagath Group</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Senegal · Beverages</p>
-          <p class="purpose">to buy sugar, one sack of baobab fruit and some sorrel.</p>
-          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
         <article data-score="9" data-country="Ecuador"
           data-sector="Water" data-activity="Community Water Distribution"
           data-labels="Vatten|Kvinnors egenmakt">
@@ -819,124 +315,628 @@ footer{margin-top:22px;color:#6b7974;font-size:.76rem} [hidden]{display:none!imp
           <p class="purpose">to buy plastic bottles, water pouches, empty gallon jugs, caps, and seals.</p>
           <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
-        <article data-score="9" data-country="Indonesia"
-          data-sector="Food" data-activity="Food Production/Sales"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3219639">Devi Bayu Laraswati</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Indonesia · Food Production/Sales</p>
-          <p class="purpose">to buy more food ingredients to expand her business.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Tajikistan"
-          data-sector="Arts" data-activity="Embroidery"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3205942">Djavlonbi</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Tajikistan · Embroidery</p>
-          <p class="purpose">to purchase a computerized sewing and embroidery machine.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="El Salvador"
-          data-sector="Food" data-activity="Food"
+        <article data-score="9" data-country="Moldova"
+          data-sector="Water" data-activity="Community Water Distribution"
           data-labels="Vatten|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3204050">El Parquesito Group</a></h2>
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218892">Diana</a></h2>
           <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">El Salvador · Food</p>
-          <p class="purpose">to have working capital.</p>
+          <p class="place">Moldova · Community Water Distribution</p>
+          <p class="purpose">to connect the house to the aqueduct.</p>
           <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
-        <article data-score="9" data-country="Indonesia"
-          data-sector="Food" data-activity="Food Stall"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218483">Emi Fitriawati</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Indonesia · Food Stall</p>
-          <p class="purpose">to buy more food to expand her business.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Mongolia"
-          data-sector="Manufacturing" data-activity="Manufacturing"
+        <article data-score="9" data-country="Ecuador"
+          data-sector="Water" data-activity="Community Water Distribution"
           data-labels="Vatten|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3222781">Enkhtsetseg</a></h2>
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3207518">Juana Andrea</a></h2>
           <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Mongolia · Manufacturing</p>
-          <p class="purpose">to purchase cashmere yarn.</p>
+          <p class="place">Ecuador · Community Water Distribution</p>
+          <p class="purpose">to buy water containers, seals, caps, and labels.</p>
           <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Burkina Faso"
-          data-sector="Services" data-activity="Beauty Salon"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3220653">Femme Actuel Group</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Burkina Faso · Beauty Salon</p>
-          <p class="purpose">to buy a dozen nail polishes and 50 boxes of products, and to save her profits.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Guatemala"
-          data-sector="Food" data-activity="Food Production/Sales"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3211057">Flor De Mayo Del Palmar Group</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Guatemala · Food Production/Sales</p>
-          <p class="purpose">to buy ingredients for her recipes and kitchenware.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Ghana"
-          data-sector="Food" data-activity="Food Production/Sales"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3209349">Fouzia</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Ghana · Food Production/Sales</p>
-          <p class="purpose">to buy ingredients to cook more food for her customers.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="El Salvador"
-          data-sector="Food" data-activity="Food Production/Sales"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3213618">Gloria Elizabeth</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">El Salvador · Food Production/Sales</p>
-          <p class="purpose">to buy more corn, chicken, beans, and oil to make tamales to sell.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
         <article data-score="9" data-country="Sierra Leone"
-          data-sector="Food" data-activity="Fruits &amp; Vegetables"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3222774">Hannah</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Sierra Leone · Fruits &amp; Vegetables</p>
-          <p class="purpose">to buy more fruits, such as apples, grapes and oranges, to sell.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Turkey"
-          data-sector="Arts" data-activity="Knitting"
-          data-labels="Utbildning|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3221170">Hati̇ce</a></h2>
-          <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Turkey · Knitting</p>
-          <p class="purpose">to purchase knitting materials for her sales.</p>
-          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
-        </article>
-        <article data-score="9" data-country="Burkina Faso"
-          data-sector="Food" data-activity="Cereals"
+          data-sector="Food" data-activity="Beverages"
           data-labels="Vatten|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218921">Houcee Pad Group</a></h2>
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214976">Mariama</a></h2>
           <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Burkina Faso · Cereals</p>
-          <p class="purpose">to buy sacks of corn to sell.</p>
+          <p class="place">Sierra Leone · Beverages</p>
+          <p class="purpose">to purchase more drinks such as Fanta, Sprite, Coca-Cola, water, etc. to increase her business.</p>
           <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article>
-        <article data-score="9" data-country="Burkina Faso"
-          data-sector="Food" data-activity="Food Production/Sales"
+        <article data-score="9" data-country="Ecuador"
+          data-sector="Water" data-activity="Water Storage/Harvesting"
           data-labels="Vatten|Kvinnors egenmakt">
-          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214180">Joliesse 4 Group</a></h2>
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3216107">Mary Azucena</a></h2>
           <div class="score">9 p · ★★☆☆☆</div></div>
-          <p class="place">Burkina Faso · Food Production/Sales</p>
-          <p class="purpose">to buy hibiscus, ginger and millet to make juices to sell.</p>
+          <p class="place">Ecuador · Water Storage/Harvesting</p>
+          <p class="purpose">to buy cement, iron, ceramics, pipes, and other construction materials.</p>
           <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="9" data-country="Moldova"
+          data-sector="Sanitation &amp; Hygiene" data-activity="Toilets &amp; Sanitation Systems"
+          data-labels="Sanitet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218084">Natalia</a></h2>
+          <div class="score">9 p · ★★☆☆☆</div></div>
+          <p class="place">Moldova · Toilets &amp; Sanitation Systems</p>
+          <p class="purpose">to renovate the bathroom in her house to improve sanitation conditions.</p>
+          <div class="tags"><span class="tag">🚽 Sanitet +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="9" data-country="Rwanda"
+          data-sector="Water" data-activity="Community Water Distribution"
+          data-labels="Vatten|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3219724">Soleil</a></h2>
+          <div class="score">9 p · ★★☆☆☆</div></div>
+          <p class="place">Rwanda · Community Water Distribution</p>
+          <p class="purpose">to purchase a tuk-tuk for water deliveries.</p>
+          <div class="tags"><span class="tag">💧 Vatten +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="9" data-country="Uganda"
+          data-sector="Services" data-activity="Mobile Transactions"
+          data-labels="Utbildning|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3206943">Teddy</a></h2>
+          <div class="score">9 p · ★★☆☆☆</div></div>
+          <p class="place">Uganda · Mobile Transactions</p>
+          <p class="purpose">to buy mobile money float and school shoes, flat shoes, and baby shoes.</p>
+          <div class="tags"><span class="tag">📚 Utbildning +3</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Kazakhstan"
+          data-sector="Agriculture" data-activity="Livestock"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3215885">Aigul</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Kazakhstan · Livestock</p>
+          <p class="purpose">to purchase horses.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Colombia"
+          data-sector="Agriculture" data-activity="Livestock"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3215328">Anny</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Colombia · Livestock</p>
+          <p class="purpose">to purchase a motorcycle that will simplify her travel between her farm and her home.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Guatemala"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3220727">Apostol San Marcos Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Guatemala · Farming</p>
+          <p class="purpose">to buy fertilizer, more pigs and feed for them.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Paraguay"
+          data-sector="Agriculture" data-activity="Agriculture"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3208860">Arminda</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Paraguay · Agriculture</p>
+          <p class="purpose">to improve fencing and clear crops.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Mali"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3208112">Benkadi Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Mali · Farming</p>
+          <p class="purpose">finance the farming of peanuts, sesame seeds and watermelons so as to have a good harvest.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Tanzania"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3203327">Bibo Tandahimba Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Tanzania · Farming</p>
+          <p class="purpose">to purchase boiling, cutting, and drying machines for processing cashew nuts.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="El Salvador"
+          data-sector="Agriculture" data-activity="Pigs"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3217185">Blanca Yamileth</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">El Salvador · Pigs</p>
+          <p class="purpose">to buy concentrated feed for pigs and to buy both piglets and mature pigs to increase the piggery&#x27;s inventory.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Colombia"
+          data-sector="Agriculture" data-activity="Agriculture"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3217583">Claudia</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Colombia · Agriculture</p>
+          <p class="purpose">to purchase an automatic brush cutter that will simplify the cleaning and weeding of her coffee plantation.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Guatemala"
+          data-sector="Agriculture" data-activity="Agriculture"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3213672">Cruzchut Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Guatemala · Agriculture</p>
+          <p class="purpose">to buy more chickens, pigs, feed and fertilizer for tomatoes.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Timor-Leste"
+          data-sector="Agriculture" data-activity="Poultry"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3217254">Delfina</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Timor-Leste · Poultry</p>
+          <p class="purpose">to buy more chickens and generate more income for the loving family.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Kazakhstan"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3207860">Dinara</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Kazakhstan · Farming</p>
+          <p class="purpose">to pay for seeds.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Turkey"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3221234">Di̇lek</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Turkey · Farming</p>
+          <p class="purpose">to purchase fertilizer for her tea gardens.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Colombia"
+          data-sector="Agriculture" data-activity="Pigs"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3211281">Elizabeth</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Colombia · Pigs</p>
+          <p class="purpose">to purchase a motorcycle that will simplify her travel while selling the production from her pig farm.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Colombia"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3216961">Esperanza Del Carmen</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Colombia · Farming</p>
+          <p class="purpose">to buy manure for her banana crop.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Rwanda"
+          data-sector="Agriculture" data-activity="Pigs"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3188983">Florence</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Rwanda · Pigs</p>
+          <p class="purpose">to purchase more pigs to sell.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Senegal"
+          data-sector="Agriculture" data-activity="Animal Sales"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3212072">Gandeck Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Senegal · Animal Sales</p>
+          <p class="purpose">to buy sheep.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Senegal"
+          data-sector="Agriculture" data-activity="Agriculture"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214135">Gpf Des Femmesde Dodji Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Senegal · Agriculture</p>
+          <p class="purpose">to buy seedlings for chili peppers, lettuce, and cabbage and to buy two sheep for fattening.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Senegal"
+          data-sector="Agriculture" data-activity="Agriculture"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3217373">Gpf Fass Diom And Ligueye/Pirame Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Senegal · Agriculture</p>
+          <p class="purpose">to buy two sacks of groundnut seeds and four sacks of fertiliser.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Kazakhstan"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3207797">Gulnissa</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Kazakhstan · Farming</p>
+          <p class="purpose">to pay for crop protection products.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Vietnam"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3200783">Hoa</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Vietnam · Farming</p>
+          <p class="purpose">to buy acacia trees.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Vietnam"
+          data-sector="Agriculture" data-activity="Agriculture"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3196546">Hằng</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Vietnam · Agriculture</p>
+          <p class="purpose">to buy acacia seedlings and fertilizer, and to hire labor when needed.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Kenya"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3220308">Jane</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Kenya · Farming</p>
+          <p class="purpose">to pay for the cost of  essential farm inputs such as fertilizers, farm seeds and farm chemicals that she will use during planting season.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Ecuador"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3212059">Jaritza Susana</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Ecuador · Farming</p>
+          <p class="purpose">to buy seeds and agricultural supplies.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Rwanda"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3220583">Jeanne</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Rwanda · Farming</p>
+          <p class="purpose">to expand cassava farming by purchasing improved seeds and fertilizer in order to increase productivity.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Philippines"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3210639">Jennifer</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Philippines · Farming</p>
+          <p class="purpose">to buy fertilizer and pay for labor costs.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="El Salvador"
+          data-sector="Agriculture" data-activity="Flowers"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3199576">Jessica Nohemy</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">El Salvador · Flowers</p>
+          <p class="purpose">to buy a wider variety of ornamental plants and a new cart to transport and sell them.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="El Salvador"
+          data-sector="Agriculture" data-activity="Poultry"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3200319">Josefa Amparo</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">El Salvador · Poultry</p>
+          <p class="purpose">to buy concentrated feed, sorghum, and vitamins for her chickens.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Uganda"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3216862">Kahooma Abeterine Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Uganda · Farming</p>
+          <p class="purpose">to purchase manure for her banana plantation.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Guatemala"
+          data-sector="Agriculture" data-activity="Livestock"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3224587">Kairos Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Guatemala · Livestock</p>
+          <p class="purpose">to buy more chickens, a cow, and feed for them.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="El Salvador"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3211048">Karina Yamileth</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">El Salvador · Farming</p>
+          <p class="purpose">to purchase seeds, fertilizers, herbicides, and pay labor costs to do maintenance on her corn crop.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Timor-Leste"
+          data-sector="Agriculture" data-activity="Pigs"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3215685">Lidia</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Timor-Leste · Pigs</p>
+          <p class="purpose">to buy more pigs to raise and sell when they are old enough.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Peru"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3213018">Lidia</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Peru · Farming</p>
+          <p class="purpose">to purchase seeds, fertilizers, and more.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Nicaragua"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3208106">Los Chagüitones Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Nicaragua · Farming</p>
+          <p class="purpose">to buy mulch, urea, Gramoxone, Glyphosate, calcium-boron, Root Out, Triple-20, etc.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Uganda"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3210334">Loyce</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Uganda · Farming</p>
+          <p class="purpose">to buy manure and mulch to improve soils for farming to obtain better harvests to sell.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Colombia"
+          data-sector="Agriculture" data-activity="Livestock"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3211220">Maria</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Colombia · Livestock</p>
+          <p class="purpose">to buy livestock supplies, and breeding stock of chickens and guinea pigs.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="El Salvador"
+          data-sector="Agriculture" data-activity="Poultry"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3210470">Maria Elena</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">El Salvador · Poultry</p>
+          <p class="purpose">to purchase concentrated feed, antibiotics, vaccines, vitamins and chicks.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Ecuador"
+          data-sector="Agriculture" data-activity="Agriculture"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3207171">Marjorie Eloiza</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Ecuador · Agriculture</p>
+          <p class="purpose">to buy feed and medicine for both chickens and pigs, as well as fertilizers and insecticides for crops.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Kenya"
+          data-sector="Agriculture" data-activity="Poultry"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3222916">Mary</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Kenya · Poultry</p>
+          <p class="purpose">to buy poultry feeds.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Uganda"
+          data-sector="Agriculture" data-activity="Livestock"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3209992">Monica</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Uganda · Livestock</p>
+          <p class="purpose">to buy more cows for fattening and sell to generate revenue.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Ecuador"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214393">Monica Rocio</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Ecuador · Farming</p>
+          <p class="purpose">to purchase agricultural supplies.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Colombia"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3214684">Myriam</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Colombia · Farming</p>
+          <p class="purpose">to purchase organic fertilizers that will strengthen the nutrition and productivity of her coffee crops.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Nicaragua"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3215185">Osmilda Arisel</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Nicaragua · Farming</p>
+          <p class="purpose">to do maintenance on 7.04 hectares of coffee.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Burkina Faso"
+          data-sector="Agriculture" data-activity="Poultry"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3222247">Oumou</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Burkina Faso · Poultry</p>
+          <p class="purpose">to buy chicks to raise and resell as chickens.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Vietnam"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3206110">Phượng</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Vietnam · Farming</p>
+          <p class="purpose">to buy jackfruit and pomelo seedlings, along with organic fertilizer.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Peru"
+          data-sector="Agriculture" data-activity="Agriculture"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3208993">Pilar Jesus</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Peru · Agriculture</p>
+          <p class="purpose">to buy seeds, among other things.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Mongolia"
+          data-sector="Agriculture" data-activity="Livestock"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218686">Purevsuren</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Mongolia · Livestock</p>
+          <p class="purpose">to purchase calves.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Kazakhstan"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3208336">Rabiga</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Kazakhstan · Farming</p>
+          <p class="purpose">ammonium nitrate fertilizer for her melon farm.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="El Salvador"
+          data-sector="Agriculture" data-activity="Poultry"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3215084">Rosa</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">El Salvador · Poultry</p>
+          <p class="purpose">to buy starter and grower feed concentrates for chickens.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Kenya"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3220298">Ruth</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Kenya · Farming</p>
+          <p class="purpose">to pay for the cost of essential farm inputs such as fertilizers, farm seeds and farm chemicals that she will use during planting season.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Tajikistan"
+          data-sector="Agriculture" data-activity="Livestock"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3212745">Sayora</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Tajikistan · Livestock</p>
+          <p class="purpose">to purchase a pair of young goats to expand her herd.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Guatemala"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3210478">Sembrando Futuro Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Guatemala · Farming</p>
+          <p class="purpose">to buy seeds and fertilizer for growing corn.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Kenya"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3211716">Serah</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Kenya · Farming</p>
+          <p class="purpose">to procure essential farm inputs such as fertilizers, farm seeds, and farm chemicals that will protect her crops and increase production.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Uganda"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3216883">Sharon</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Uganda · Farming</p>
+          <p class="purpose">to buy fertilizers to add in her coffee plantation.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Mongolia"
+          data-sector="Agriculture" data-activity="Livestock"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3218691">Sumiyabayar</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Mongolia · Livestock</p>
+          <p class="purpose">to purchase livestock.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Vietnam"
+          data-sector="Agriculture" data-activity="Agriculture"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3200734">Thoa</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Vietnam · Agriculture</p>
+          <p class="purpose">to buy additional acacia seedlings.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Vietnam"
+          data-sector="Agriculture" data-activity="Farming"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3189187">Thủy</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Vietnam · Farming</p>
+          <p class="purpose">to buy pineapple seedlings and fertilizer.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Vietnam"
+          data-sector="Agriculture" data-activity="Agriculture"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3192457">Triều</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Vietnam · Agriculture</p>
+          <p class="purpose">to buy acacia seedlings, organic fertilizer, and hiring labor for planting.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="8" data-country="Burkina Faso"
+          data-sector="Agriculture" data-activity="Agriculture"
+          data-labels="Jordbruk och matsäkerhet|Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3216823">Weda Ppa Group</a></h2>
+          <div class="score">8 p · ★★☆☆☆</div></div>
+          <p class="place">Burkina Faso · Agriculture</p>
+          <p class="purpose">to buy seeds and fertilizer for her agricultural production.</p>
+          <div class="tags"><span class="tag">🌱 Jordbruk och matsäkerhet +2</span> <span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="6" data-country="Tonga"
+          data-sector="Arts" data-activity="Textiles"
+          data-labels="Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3220006">&#x27;Ofa</a></h2>
+          <div class="score">6 p · ★★☆☆☆</div></div>
+          <p class="place">Tonga · Textiles</p>
+          <p class="purpose">to help buy enough mulberry for her to make tapa cloth and also to help her pay for the freight to.export her tapa cloth overseas.</p>
+          <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="6" data-country="Tonga"
+          data-sector="Arts" data-activity="Weaving"
+          data-labels="Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3223120">&#x27;Ofa</a></h2>
+          <div class="score">6 p · ★★☆☆☆</div></div>
+          <p class="place">Tonga · Weaving</p>
+          <p class="purpose">to buy enough pandanus leaves to make ta&#x27;ovala and also export her ta&#x27;ovala to overseas markets.</p>
+          <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="6" data-country="Tonga"
+          data-sector="Arts" data-activity="Weaving"
+          data-labels="Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3223123">&#x27;Onisema</a></h2>
+          <div class="score">6 p · ★★☆☆☆</div></div>
+          <p class="place">Tonga · Weaving</p>
+          <p class="purpose">to buy enough pandanus leaves needed for her weaving ta&#x27;ovala business and a new washing machine for her daily laundry.</p>
+          <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span></div>
+        </article>
+        <article data-score="6" data-country="Sierra Leone"
+          data-sector="Food" data-activity="Beverages"
+          data-labels="Kvinnors egenmakt">
+          <div class="card-head"><h2><a href="https://www.kiva.org/lend/3223606">Adamsay</a></h2>
+          <div class="score">6 p · ★★☆☆☆</div></div>
+          <p class="place">Sierra Leone · Beverages</p>
+          <p class="purpose">to purchase assorted soft drinks by the crate to increase her business.</p>
+          <div class="tags"><span class="tag">♀ Kvinnors egenmakt +6</span></div>
         </article></section>
-<footer>Skapad 2026-08-12 11:55. Poäng och stjärnor är vägledning, inte en garanti för effekt eller återbetalning.</footer>
+<footer>Skapad 2026-08-12 12:01. Poäng och stjärnor är vägledning, inte en garanti för effekt eller återbetalning.</footer>
 <script>
 const cards=[...document.querySelectorAll('article')];
 const baseNames={theme:'Kategorier',country:'Länder',sector:'Sektorer',activity:'Aktiviteter',score:'Poäng'};

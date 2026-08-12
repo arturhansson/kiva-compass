@@ -20,6 +20,15 @@ class CompassTests(unittest.TestCase):
         result = score_loan({"use": "Water tank and water pump"}, self.config)
         self.assertEqual(result["score"], 6)
 
+    def test_biography_does_not_create_theme_points(self):
+        result = score_loan({"use": "to buy food", "description": "She completed her education."}, self.config)
+        self.assertEqual(result["score"], 0)
+
+    def test_keyword_does_not_match_word_fragment(self):
+        config = {"themes": [{"label": "Brunn", "icon": "💧", "points": 3, "keywords": ["well"]}]}
+        self.assertEqual(score_loan({"use": "to improve financial well-being"}, config)["score"], 0)
+        self.assertEqual(score_loan({"use": "to dig a well"}, config)["score"], 3)
+
     def test_normalizes_wrapped_list(self):
         self.assertEqual(normalize_loans({"loans": [{"id": 1}]}), [{"id": 1}])
 
@@ -36,6 +45,15 @@ class CompassTests(unittest.TestCase):
         ]}
         result = score_loan({"sector": "Retail clothing"}, config)
         self.assertEqual(result["score"], -50)
+
+    def test_strongest_climate_penalty_applies_once(self):
+        config = {"themes": [
+            {"label": "Jordbruk", "icon": "🌱", "points": 2, "keywords": ["agriculture"]},
+            {"label": "Mejeri", "icon": "🌡️", "points": -6, "keywords": ["dairy"]},
+            {"label": "Kor", "icon": "🌡️", "points": -10, "keywords": ["dairy cows"]},
+        ]}
+        result = score_loan({"sector": "Agriculture", "use": "to purchase dairy cows"}, config)
+        self.assertEqual(result["score"], -8)
 
     def test_us_penalty_keeps_positive_matches(self):
         config = {

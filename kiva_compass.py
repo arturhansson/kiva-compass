@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import re
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -35,12 +36,16 @@ def normalize_loans(data: Any) -> list[dict[str, Any]]:
 
 
 def searchable_text(loan: dict[str, Any]) -> str:
+    """Text that describes what the money funds, excluding biography prose."""
     fields = (
-        loan.get("name", ""), loan.get("use", ""), loan.get("description", ""),
-        loan.get("sector", ""), loan.get("activity", ""),
+        loan.get("use", ""), loan.get("sector", ""), loan.get("activity", ""),
     )
-    tags = loan.get("tags", [])
-    return " ".join(map(str, (*fields, *tags))).casefold()
+    return " ".join(map(str, fields)).casefold()
+
+
+def keyword_matches(text: str, keyword: str) -> bool:
+    """Match a whole word/phrase, never fragments such as well in well-being."""
+    return re.search(r"(?<![\w-])" + re.escape(keyword.casefold()) + r"(?![\w-])", text) is not None
 
 
 def score_loan(loan: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
@@ -49,7 +54,7 @@ def score_loan(loan: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
 
     for rule in config["themes"]:
         keywords = tuple(keyword.casefold() for keyword in rule["keywords"])
-        if any(keyword in text for keyword in keywords):
+        if any(keyword_matches(text, keyword) for keyword in keywords):
             matches.append({"label": rule["label"], "icon": rule["icon"], "points": rule["points"]})
 
     attributes = loan.get("attributes", {})
@@ -113,7 +118,7 @@ def render_html(results: list[dict[str, Any]], config: dict[str, Any], output: P
     cards = []
     for loan in results:
         reasons = " ".join(
-            f'<span class="tag{" new-country" if m["label"] == "NYTT LAND" else ""}">'
+            f'<span class="tag{" new-country" if m["label"] == "NYTT LAND" else " climate-risk" if m["label"].startswith("Klimatrisk:") else ""}">'
             f'{html.escape(m["icon"])} {html.escape(m["label"])} '
             f'{m["points"]:+d}</span>'
             for m in loan["matches"]
@@ -153,7 +158,7 @@ h1{{font-size:clamp(1.8rem,5vw,2.8rem);margin:0;line-height:1}} .intro{{margin:.
 .summary{{grid-column:1/-1;display:flex;justify-content:space-between;color:#587068;font-size:.82rem}} .legend{{white-space:nowrap}}
 #loans{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}} article{{background:var(--card);padding:13px 14px;margin:0;border-radius:10px;border-left:4px solid var(--green);box-shadow:0 2px 9px #17352d12}}
 .card-head{{display:flex;align-items:baseline;justify-content:space-between;gap:10px}} h2{{font-size:1.08rem;margin:0}} a{{color:var(--ink)}} .score{{color:#9a6b08;font-weight:800;white-space:nowrap}} .place{{margin:2px 0 5px;font-size:.82rem}} .purpose{{margin:0 0 6px}}
-.tag{{display:inline-block;background:#dcebe3;border-radius:99px;padding:2px 7px;margin:2px 2px 0 0;font-size:.72rem}} .new-country{{background:#ffe49a;color:#593d00;font-weight:800;border:1px solid #d29b28}}
+.tag{{display:inline-block;background:#dcebe3;border-radius:99px;padding:2px 7px;margin:2px 2px 0 0;font-size:.72rem}} .new-country{{background:#ffe49a;color:#593d00;font-weight:800;border:1px solid #d29b28}} .climate-risk{{background:#f8ded8;color:#762918;border:1px solid #d98d7b;font-weight:700}}
 footer{{margin-top:22px;color:#6b7974;font-size:.76rem}} [hidden]{{display:none!important}}
 @media(max-width:800px){{header{{align-items:start;flex-direction:column}}.controls{{position:static;grid-template-columns:repeat(2,1fr)}}.controls>input{{grid-column:1/-1}}#loans{{grid-template-columns:1fr}}.balance-box{{width:100%}}.filter-options{{position:fixed;left:12px;right:12px;top:25%;max-width:none;max-height:60vh}}}}
 </style></head><body><main><header><div><h1>🧭 Kiva Compass</h1><p class="intro">Hitta lånen som bäst matchar din kompass.</p></div>
