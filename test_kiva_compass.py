@@ -55,6 +55,21 @@ class CompassTests(unittest.TestCase):
         result = score_loan({"sector": "Agriculture", "use": "to purchase dairy cows"}, config)
         self.assertEqual(result["score"], -8)
 
+    def test_human_bonus_cannot_hide_negative_climate_score(self):
+        config = {
+            "priorities": {"climate_first": True, "climate_labels": []},
+            "themes": [
+                {"label": "Klimatrisk: mejeri", "icon": "🌡️", "points": -6, "keywords": ["dairy"]},
+            ],
+            "attributes": [
+                {"field": "woman_owned", "equals": True, "label": "Kvinnors egenmakt", "icon": "♀", "points": 6},
+            ],
+        }
+        result = score_loan({"use": "dairy products", "attributes": {"woman_owned": True}}, config)
+        self.assertEqual(result["climate_score"], -6)
+        self.assertEqual(result["human_score"], 6)
+        self.assertEqual(result["score"], -6)
+
     def test_us_penalty_keeps_positive_matches(self):
         config = {
             "themes": [{"label": "Cykel", "icon": "🚲", "points": 18, "keywords": ["bicycle"]}],

@@ -1,4 +1,9 @@
 {
+  "priorities": {
+    "principle": "Klimatet går före människor; mänsklig nytta väger högt när den stärker människors förmåga att skydda och återställa planeten.",
+    "climate_first": true,
+    "climate_labels": ["Cykel och mobilitet", "Vatten", "Sanitet", "Ren energi", "Reparation och återbruk", "Jordbruk och matsäkerhet"]
+  },
   "new_country_bonus": {
     "label": "NYTT LAND",
     "icon": "🆕🌍",

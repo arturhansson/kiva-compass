@@ -77,8 +77,24 @@ def score_loan(loan: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
     # Several avoidance keywords may describe the same loan. Apply the strongest
     # penalty once, rather than multiplying it for overlapping labels.
     score = positive_score + (min(penalties) if penalties else 0)
+
+    priorities = config.get("priorities", {})
+    climate_labels = set(priorities.get("climate_labels", []))
+    climate_matches = [
+        match for match in matches
+        if match["label"].startswith("Klimatrisk:") or match["label"] in climate_labels
+    ]
+    climate_score = sum(match["points"] for match in climate_matches)
+    human_score = sum(
+        match["points"] for match in matches
+        if match not in climate_matches and match["points"] > 0
+    )
+    # Social nytta får inte vända en klimatnegativ bedömning till en positiv.
+    # Den visas fortfarande, men räknas först när klimatbalansen är neutral/positiv.
+    if priorities.get("climate_first") and climate_score < 0:
+        score = min(score - human_score, climate_score)
     result = dict(loan)
-    result.update(score=score, matches=matches)
+    result.update(score=score, climate_score=climate_score, human_score=human_score, matches=matches)
     return result
 
 
