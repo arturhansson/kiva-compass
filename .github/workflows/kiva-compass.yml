@@ -36,7 +36,7 @@ jobs:
         run: python -m unittest -v
 
       - name: Hämta och rangordna aktuella lån
-        run: python kiva_compass.py --live --pages 5 --limit 40 --output site/index.html
+        run: python kiva_compass.py --live --pages 5 --limit 100 --output site/index.html
 
       - name: Förbered GitHub Pages
         uses: actions/configure-pages@v5

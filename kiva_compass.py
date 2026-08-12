@@ -78,14 +78,34 @@ def score_loan(loan: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
 
 
 def stars(score: int, maximum: int) -> str:
-    filled = max(0, min(5, round(5 * score / maximum))) if maximum else 0
+    """Map Compass points to fixed, understandable quality bands."""
+    del maximum  # Kept in the signature for backwards compatibility.
+    if score <= 0:
+        filled = 0
+    elif score <= 5:
+        filled = 1
+    elif score <= 9:
+        filled = 2
+    elif score <= 14:
+        filled = 3
+    elif score <= 19:
+        filled = 4
+    else:
+        filled = 5
     return "★" * filled + "☆" * (5 - filled)
 
 
 def render_html(results: list[dict[str, Any]], config: dict[str, Any], output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
-    maximum = sum(max(0, rule["points"]) for group in (config["themes"], config.get("attributes", [])) for rule in group)
-    maximum += max(0, config.get("new_country_bonus", {}).get("points", 0))
+    maximum = 20
+    countries = sorted({str(loan.get("country", "Okänt land")) for loan in results})
+    sectors = sorted({str(loan.get("sector", "")) for loan in results if loan.get("sector")})
+    activities = sorted({str(loan.get("activity", "")) for loan in results if loan.get("activity")})
+    match_labels = sorted({m["label"] for loan in results for m in loan["matches"]})
+
+    def options(values: list[str]) -> str:
+        return "".join(f'<option value="{html.escape(value, quote=True)}">{html.escape(value)}</option>' for value in values)
+
     cards = []
     for loan in results:
         reasons = " ".join(
@@ -95,13 +115,19 @@ def render_html(results: list[dict[str, Any]], config: dict[str, Any], output: P
             for m in loan["matches"]
         ) or '<span class="muted">Inga kompassträffar ännu</span>'
         url = html.escape(str(loan.get("url", "#")), quote=True)
+        country = str(loan.get("country", "Okänt land"))
+        sector = str(loan.get("sector", ""))
+        activity = str(loan.get("activity", sector))
+        labels = "|".join(m["label"] for m in loan["matches"])
         cards.append(f"""
-        <article>
-          <div class="score">{loan['score']} p · {stars(loan['score'], maximum)}</div>
-          <h2><a href="{url}">{html.escape(str(loan.get('name', 'Namnlöst lån')))}</a></h2>
-          <p class="place">{html.escape(str(loan.get('country', 'Okänt land')))} · {html.escape(str(loan.get('activity', loan.get('sector', ''))))}</p>
-          <p>{html.escape(str(loan.get('use', '')))}</p>
-          <div>{reasons}</div>
+        <article data-score="{loan['score']}" data-country="{html.escape(country, quote=True)}"
+          data-sector="{html.escape(sector, quote=True)}" data-activity="{html.escape(activity, quote=True)}"
+          data-labels="{html.escape(labels, quote=True)}">
+          <div class="card-head"><h2><a href="{url}">{html.escape(str(loan.get('name', 'Namnlöst lån')))}</a></h2>
+          <div class="score">{loan['score']} p · {stars(loan['score'], maximum)}</div></div>
+          <p class="place">{html.escape(country)} · {html.escape(activity)}</p>
+          <p class="purpose">{html.escape(str(loan.get('use', '')))}</p>
+          <div class="tags">{reasons}</div>
         </article>""")
 
     generated = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M")
@@ -109,14 +135,48 @@ def render_html(results: list[dict[str, Any]], config: dict[str, Any], output: P
 <html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
 <title>Kiva Compass</title><style>
 :root{{--ink:#18352d;--green:#2f7d65;--paper:#f4f1e8;--card:#fffdf7;--gold:#d29b28}}
-*{{box-sizing:border-box}} body{{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 system-ui,sans-serif}}
-main{{max-width:850px;margin:auto;padding:48px 20px}} header{{margin-bottom:32px}} h1{{font-size:clamp(2.2rem,7vw,4.5rem);margin:0;line-height:1}}
-.intro,.place,.muted{{color:#587068}} article{{background:var(--card);padding:24px;margin:18px 0;border-radius:14px;border-left:6px solid var(--green);box-shadow:0 3px 16px #17352d14}}
-h2{{margin:.15rem 0}} a{{color:var(--ink)}} .score{{color:var(--gold);font-weight:750;letter-spacing:.03em}} .tag{{display:inline-block;background:#dcebe3;border-radius:99px;padding:4px 10px;margin:4px 4px 0 0;font-size:.88rem}} .new-country{{background:#ffe49a;color:#593d00;font-weight:800;border:2px solid #d29b28}}
-footer{{margin-top:35px;color:#6b7974;font-size:.85rem}}
-</style></head><body><main><header><h1>🧭 Kiva Compass</h1><p class="intro">Lån som ligger nära det du vill hjälpa fram i världen.</p></header>
-{''.join(cards)}<footer>Skapad {generated}. Poängen är vägledning, inte en garanti för effekt eller återbetalning.</footer>
-</main></body></html>"""
+*{{box-sizing:border-box}} body{{margin:0;background:var(--paper);color:var(--ink);font:14px/1.38 system-ui,sans-serif}}
+main{{max-width:1080px;margin:auto;padding:20px 16px 36px}} header{{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:14px}}
+h1{{font-size:clamp(1.8rem,5vw,2.8rem);margin:0;line-height:1}} .intro{{margin:.3rem 0 0}} .intro,.place,.muted{{color:#587068}}
+.balance-box{{background:var(--ink);color:white;padding:9px 12px;border-radius:10px;min-width:225px}} .balance-box label{{font-weight:700}}
+.balance-box input{{width:82px;margin-left:6px;padding:5px;border:0;border-radius:6px;font:inherit}} #slots{{display:block;font-size:.82rem;margin-top:3px;color:#dcebe3}}
+.controls{{position:sticky;top:0;z-index:2;display:grid;grid-template-columns:2fr repeat(5,minmax(105px,1fr));gap:7px;background:#e8e4d8;padding:10px;border-radius:11px;margin-bottom:10px;box-shadow:0 3px 12px #17352d18}}
+.controls input,.controls select{{min-width:0;width:100%;padding:7px;border:1px solid #b9c2bd;border-radius:7px;background:white;color:var(--ink);font:inherit}}
+.summary{{grid-column:1/-1;display:flex;justify-content:space-between;color:#587068;font-size:.82rem}} .legend{{white-space:nowrap}}
+#loans{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}} article{{background:var(--card);padding:13px 14px;margin:0;border-radius:10px;border-left:4px solid var(--green);box-shadow:0 2px 9px #17352d12}}
+.card-head{{display:flex;align-items:baseline;justify-content:space-between;gap:10px}} h2{{font-size:1.08rem;margin:0}} a{{color:var(--ink)}} .score{{color:#9a6b08;font-weight:800;white-space:nowrap}} .place{{margin:2px 0 5px;font-size:.82rem}} .purpose{{margin:0 0 6px}}
+.tag{{display:inline-block;background:#dcebe3;border-radius:99px;padding:2px 7px;margin:2px 2px 0 0;font-size:.72rem}} .new-country{{background:#ffe49a;color:#593d00;font-weight:800;border:1px solid #d29b28}}
+footer{{margin-top:22px;color:#6b7974;font-size:.76rem}} [hidden]{{display:none!important}}
+@media(max-width:800px){{header{{align-items:start;flex-direction:column}}.controls{{grid-template-columns:repeat(2,1fr)}}#loans{{grid-template-columns:1fr}}.balance-box{{width:100%}}}}
+</style></head><body><main><header><div><h1>🧭 Kiva Compass</h1><p class="intro">Hitta lånen som bäst matchar din kompass.</p></div>
+<div class="balance-box"><label for="balance">Tillgängligt saldo $</label><input id="balance" type="number" min="0" step="1" placeholder="—"><span id="slots">Sparas endast i den här webbläsaren</span></div></header>
+<section class="controls" aria-label="Filtrera lån">
+<input id="search" type="search" placeholder="Sök namn, land eller ändamål…">
+<select id="theme"><option value="">Alla Compass-kategorier</option>{options(match_labels)}</select>
+<select id="country"><option value="">Alla länder</option>{options(countries)}</select>
+<select id="sector"><option value="">Alla sektorer</option>{options(sectors)}</select>
+<select id="activity"><option value="">Alla aktiviteter</option>{options(activities)}</select>
+<select id="minscore"><option value="-999">Alla poäng</option><option value="1">Minst 1 p</option><option value="10">Minst 10 p</option><option value="15">Minst 15 p</option><option value="20">Minst 20 p</option></select>
+<div class="summary"><span id="count"></span><span class="legend">★ 1–5 · ★★ 6–9 · ★★★ 10–14 · ★★★★ 15–19 · ★★★★★ 20+</span></div>
+</section><section id="loans">{''.join(cards)}</section>
+<footer>Skapad {generated}. Poäng och stjärnor är vägledning, inte en garanti för effekt eller återbetalning.</footer>
+<script>
+const cards=[...document.querySelectorAll('article')];
+const fields=['search','theme','country','sector','activity','minscore'];
+function filterLoans(){{
+ const q=document.querySelector('#search').value.toLowerCase();
+ const theme=document.querySelector('#theme').value, country=document.querySelector('#country').value;
+ const sector=document.querySelector('#sector').value, activity=document.querySelector('#activity').value;
+ const minscore=Number(document.querySelector('#minscore').value); let visible=0;
+ cards.forEach(card=>{{const ok=(!q||card.innerText.toLowerCase().includes(q))&&(!theme||card.dataset.labels.split('|').includes(theme))&&(!country||card.dataset.country===country)&&(!sector||card.dataset.sector===sector)&&(!activity||card.dataset.activity===activity)&&Number(card.dataset.score)>=minscore; card.hidden=!ok;if(ok)visible++;}});
+ document.querySelector('#count').textContent=`${{visible}} av ${{cards.length}} lån visas`;
+}}
+fields.forEach(id=>document.querySelector('#'+id).addEventListener('input',filterLoans)); filterLoans();
+const balance=document.querySelector('#balance'), slots=document.querySelector('#slots');
+const saved=localStorage.getItem('kivaCompassBalance'); if(saved!==null) balance.value=saved;
+function updateBalance(){{const value=Number(balance.value); if(balance.value===''){{slots.textContent='Sparas endast i den här webbläsaren';return;}} localStorage.setItem('kivaCompassBalance',String(value)); const loans=Math.floor(value/25), left=value-loans*25; slots.textContent=`Räcker till ${{loans}} lån à $25 · $${{left.toFixed(0)}} kvar`;}}
+balance.addEventListener('input',updateBalance); updateBalance();
+</script></main></body></html>"""
     output.write_text(document, encoding="utf-8")
 
 

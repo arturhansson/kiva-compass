@@ -8,6 +8,11 @@ Lån i ett land som ännu inte finns i Arturs Kiva-statistik får bonusen **Nytt
 land**. Listan uppdateras i `new_country_bonus.countries` efter att ett nytt land
 har nåtts.
 
+Webbrapporten visar de 100 högst rankade lånen i en kompakt tvåkolumnsvy. Den
+kan filtreras på fritext, Compass-kategori, land, sektor, aktivitet och minsta
+poäng. Ett frivilligt saldofält sparas endast lokalt i webbläsaren och räknar ut
+hur många hela lån à $25 saldot räcker till; saldot publiceras inte på GitHub.
+
 ## Kör på Windows
 
 Python 3 krävs. Öppna PowerShell i mappen och kör:

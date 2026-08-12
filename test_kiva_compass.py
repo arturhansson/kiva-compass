@@ -24,7 +24,9 @@ class CompassTests(unittest.TestCase):
         self.assertEqual(normalize_loans({"loans": [{"id": 1}]}), [{"id": 1}])
 
     def test_stars(self):
-        self.assertEqual(stars(5, 10), "★★☆☆☆")
+        self.assertEqual(stars(5, 10), "★☆☆☆☆")
+        self.assertEqual(stars(10, 99), "★★★☆☆")
+        self.assertEqual(stars(20, 99), "★★★★★")
         self.assertEqual(stars(-50, 10), "☆☆☆☆☆")
 
     def test_negative_rule(self):
