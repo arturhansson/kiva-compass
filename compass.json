@@ -1,4 +1,28 @@
 {
+  "new_country_bonus": {
+    "label": "Nytt land för Artur",
+    "icon": "🌍",
+    "points": 6,
+    "countries": [
+      "Benin",
+      "Bolivia",
+      "Burundi",
+      "Dominican Republic",
+      "India",
+      "Japan",
+      "Korea, Republic of",
+      "Kosovo",
+      "Lebanon",
+      "Malawi",
+      "Mozambique",
+      "Nepal",
+      "Niger",
+      "Panama",
+      "Papua New Guinea",
+      "Puerto Rico",
+      "Singapore"
+    ]
+  },
   "themes": [
     {"label": "Cykel och mobilitet", "icon": "🚲", "points": 18, "keywords": ["bicycle", "bike", "cycling", "cykel"]},
     {"label": "Vatten", "icon": "💧", "points": 3, "keywords": ["water", "well", "irrigation", "vatten"]},

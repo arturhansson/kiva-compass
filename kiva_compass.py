@@ -59,6 +59,14 @@ def score_loan(loan: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
         if actual == expected:
             matches.append({"label": rule["label"], "icon": rule["icon"], "points": rule["points"]})
 
+    new_country_rule = config.get("new_country_bonus")
+    if new_country_rule and loan.get("country") in new_country_rule.get("countries", []):
+        matches.append({
+            "label": new_country_rule["label"],
+            "icon": new_country_rule["icon"],
+            "points": new_country_rule["points"],
+        })
+
     positive_score = sum(match["points"] for match in matches if match["points"] >= 0)
     penalties = [match["points"] for match in matches if match["points"] < 0]
     # Several avoidance keywords may describe the same loan. Apply the strongest
@@ -77,6 +85,7 @@ def stars(score: int, maximum: int) -> str:
 def render_html(results: list[dict[str, Any]], config: dict[str, Any], output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     maximum = sum(max(0, rule["points"]) for group in (config["themes"], config.get("attributes", [])) for rule in group)
+    maximum += max(0, config.get("new_country_bonus", {}).get("points", 0))
     cards = []
     for loan in results:
         reasons = " ".join(

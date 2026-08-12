@@ -43,6 +43,14 @@ class CompassTests(unittest.TestCase):
         result = score_loan({"country": "United States", "use": "bicycle repair"}, config)
         self.assertEqual(result["score"], 15)
 
+    def test_new_country_bonus(self):
+        config = {
+            "themes": [],
+            "new_country_bonus": {"label": "Nytt land", "icon": "🌍", "points": 6, "countries": ["Nepal"]},
+        }
+        self.assertEqual(score_loan({"country": "Nepal"}, config)["score"], 6)
+        self.assertEqual(score_loan({"country": "Kenya"}, config)["score"], 0)
+
     def test_normalizes_live_loan(self):
         loan = _normalize({
             "id": 42, "name": "Amina", "gender": "FEMALE", "tags": ["Refugees and IDPs"],

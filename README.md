@@ -4,6 +4,10 @@ Kiva Compass rangordnar lån utifrån teman som cyklar, vatten, sanitet, ren ene
 återbruk och egenmakt. Alla regler finns öppet i `compass.json` och kan ändras utan
 programmering.
 
+Lån i ett land som ännu inte finns i Arturs Kiva-statistik får bonusen **Nytt
+land**. Listan uppdateras i `new_country_bonus.countries` efter att ett nytt land
+har nåtts.
+
 ## Kör på Windows
 
 Python 3 krävs. Öppna PowerShell i mappen och kör:
