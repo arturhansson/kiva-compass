@@ -25,6 +25,23 @@ class CompassTests(unittest.TestCase):
 
     def test_stars(self):
         self.assertEqual(stars(5, 10), "★★☆☆☆")
+        self.assertEqual(stars(-50, 10), "☆☆☆☆☆")
+
+    def test_negative_rule(self):
+        config = {"themes": [
+            {"label": "Undvik butik", "icon": "⛔", "points": -50, "keywords": ["retail"]},
+            {"label": "Undvik kläder", "icon": "⛔", "points": -50, "keywords": ["clothing"]},
+        ]}
+        result = score_loan({"sector": "Retail clothing"}, config)
+        self.assertEqual(result["score"], -50)
+
+    def test_us_penalty_keeps_positive_matches(self):
+        config = {
+            "themes": [{"label": "Cykel", "icon": "🚲", "points": 18, "keywords": ["bicycle"]}],
+            "attributes": [{"field": "country", "equals": "United States", "label": "USA", "icon": "🇺🇸", "points": -3}],
+        }
+        result = score_loan({"country": "United States", "use": "bicycle repair"}, config)
+        self.assertEqual(result["score"], 15)
 
     def test_normalizes_live_loan(self):
         loan = _normalize({

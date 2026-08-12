@@ -59,20 +59,24 @@ def score_loan(loan: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
         if actual == expected:
             matches.append({"label": rule["label"], "icon": rule["icon"], "points": rule["points"]})
 
-    score = sum(match["points"] for match in matches)
+    positive_score = sum(match["points"] for match in matches if match["points"] >= 0)
+    penalties = [match["points"] for match in matches if match["points"] < 0]
+    # Several avoidance keywords may describe the same loan. Apply the strongest
+    # penalty once, rather than multiplying it for overlapping labels.
+    score = positive_score + (min(penalties) if penalties else 0)
     result = dict(loan)
     result.update(score=score, matches=matches)
     return result
 
 
 def stars(score: int, maximum: int) -> str:
-    filled = min(5, round(5 * score / maximum)) if maximum else 0
+    filled = max(0, min(5, round(5 * score / maximum))) if maximum else 0
     return "★" * filled + "☆" * (5 - filled)
 
 
 def render_html(results: list[dict[str, Any]], config: dict[str, Any], output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
-    maximum = sum(rule["points"] for group in (config["themes"], config.get("attributes", [])) for rule in group)
+    maximum = sum(max(0, rule["points"]) for group in (config["themes"], config.get("attributes", [])) for rule in group)
     cards = []
     for loan in results:
         reasons = " ".join(
