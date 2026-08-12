@@ -89,7 +89,9 @@ def render_html(results: list[dict[str, Any]], config: dict[str, Any], output: P
     cards = []
     for loan in results:
         reasons = " ".join(
-            f'<span class="tag">{html.escape(m["icon"])} {html.escape(m["label"])} +{m["points"]}</span>'
+            f'<span class="tag{" new-country" if m["label"] == "NYTT LAND" else ""}">'
+            f'{html.escape(m["icon"])} {html.escape(m["label"])} '
+            f'{m["points"]:+d}</span>'
             for m in loan["matches"]
         ) or '<span class="muted">Inga kompassträffar ännu</span>'
         url = html.escape(str(loan.get("url", "#")), quote=True)
@@ -110,7 +112,7 @@ def render_html(results: list[dict[str, Any]], config: dict[str, Any], output: P
 *{{box-sizing:border-box}} body{{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 system-ui,sans-serif}}
 main{{max-width:850px;margin:auto;padding:48px 20px}} header{{margin-bottom:32px}} h1{{font-size:clamp(2.2rem,7vw,4.5rem);margin:0;line-height:1}}
 .intro,.place,.muted{{color:#587068}} article{{background:var(--card);padding:24px;margin:18px 0;border-radius:14px;border-left:6px solid var(--green);box-shadow:0 3px 16px #17352d14}}
-h2{{margin:.15rem 0}} a{{color:var(--ink)}} .score{{color:var(--gold);font-weight:750;letter-spacing:.03em}} .tag{{display:inline-block;background:#dcebe3;border-radius:99px;padding:4px 10px;margin:4px 4px 0 0;font-size:.88rem}}
+h2{{margin:.15rem 0}} a{{color:var(--ink)}} .score{{color:var(--gold);font-weight:750;letter-spacing:.03em}} .tag{{display:inline-block;background:#dcebe3;border-radius:99px;padding:4px 10px;margin:4px 4px 0 0;font-size:.88rem}} .new-country{{background:#ffe49a;color:#593d00;font-weight:800;border:2px solid #d29b28}}
 footer{{margin-top:35px;color:#6b7974;font-size:.85rem}}
 </style></head><body><main><header><h1>🧭 Kiva Compass</h1><p class="intro">Lån som ligger nära det du vill hjälpa fram i världen.</p></header>
 {''.join(cards)}<footer>Skapad {generated}. Poängen är vägledning, inte en garanti för effekt eller återbetalning.</footer>

@@ -1,8 +1,8 @@
 {
   "new_country_bonus": {
-    "label": "Nytt land för Artur",
-    "icon": "🌍",
-    "points": 6,
+    "label": "NYTT LAND",
+    "icon": "🆕🌍",
+    "points": 10,
     "countries": [
       "Benin",
       "Bolivia",

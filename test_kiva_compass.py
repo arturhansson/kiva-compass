@@ -46,9 +46,9 @@ class CompassTests(unittest.TestCase):
     def test_new_country_bonus(self):
         config = {
             "themes": [],
-            "new_country_bonus": {"label": "Nytt land", "icon": "🌍", "points": 6, "countries": ["Nepal"]},
+            "new_country_bonus": {"label": "NYTT LAND", "icon": "🆕🌍", "points": 10, "countries": ["Nepal"]},
         }
-        self.assertEqual(score_loan({"country": "Nepal"}, config)["score"], 6)
+        self.assertEqual(score_loan({"country": "Nepal"}, config)["score"], 10)
         self.assertEqual(score_loan({"country": "Kenya"}, config)["score"], 0)
 
     def test_normalizes_live_loan(self):
