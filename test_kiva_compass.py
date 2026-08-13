@@ -29,6 +29,14 @@ class CompassTests(unittest.TestCase):
         self.assertEqual(score_loan({"use": "to improve financial well-being"}, config)["score"], 0)
         self.assertEqual(score_loan({"use": "to dig a well"}, config)["score"], 3)
 
+    def test_bicycle_rule_excludes_motorbikes(self):
+        config = {"themes": [
+            {"label": "Cykel", "icon": "🚲", "points": 18, "keywords": ["bicycle", "bicycles", "bike", "bikes"]},
+        ]}
+        self.assertEqual(score_loan({"use": "to repair bikes"}, config)["score"], 18)
+        self.assertEqual(score_loan({"use": "to sell motorbike spare parts"}, config)["score"], 0)
+        self.assertEqual(score_loan({"use": "to sell motor bike spare parts"}, config)["score"], 0)
+
     def test_normalizes_wrapped_list(self):
         self.assertEqual(normalize_loans({"loans": [{"id": 1}]}), [{"id": 1}])
 

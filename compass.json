@@ -29,7 +29,7 @@
     ]
   },
   "themes": [
-    {"label": "Cykel och mobilitet", "icon": "🚲", "points": 18, "keywords": ["bicycle", "bike", "cycling", "cykel"]},
+    {"label": "Cykel och mobilitet", "icon": "🚲", "points": 18, "keywords": ["bicycle", "bicycles", "bike", "bikes", "cycling", "cykel", "cyklar"]},
     {"label": "Vatten", "icon": "💧", "points": 3, "keywords": ["water", "water well", "well drilling", "borehole", "irrigation", "vatten"]},
     {"label": "Sanitet", "icon": "🚽", "points": 3, "keywords": ["sanitation", "toilet", "latrine", "hygiene"]},
     {"label": "Ren energi", "icon": "☀️", "points": 5, "keywords": ["solar", "renewable", "clean energy", "biogas"]},

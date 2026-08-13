@@ -45,7 +45,16 @@ def searchable_text(loan: dict[str, Any]) -> str:
 
 def keyword_matches(text: str, keyword: str) -> bool:
     """Match a whole word/phrase, never fragments such as well in well-being."""
-    return re.search(r"(?<![\w-])" + re.escape(keyword.casefold()) + r"(?![\w-])", text) is not None
+    normalized_keyword = keyword.casefold()
+    pattern = r"(?<![\w-])" + re.escape(normalized_keyword) + r"(?![\w-])"
+    matches = list(re.finditer(pattern, text))
+    if normalized_keyword in {"bike", "bikes", "cycle", "cycles"}:
+        # "motor bike" and similar spellings are motor vehicles, not bicycles.
+        matches = [
+            match for match in matches
+            if not re.search(r"(?:motor|motorized|motorised)[\s-]*$", text[:match.start()])
+        ]
+    return bool(matches)
 
 
 def score_loan(loan: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]:
